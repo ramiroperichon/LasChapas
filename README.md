@@ -73,6 +73,15 @@ La galería acepta cualquier cantidad de fotos: el patrón de composición se re
 sea provisional, el aviso de la galería desaparece automáticamente. Podés borrar los `provisional-*.svg`
 que ya no uses.
 
+## Publicación en GitHub Pages
+
+El workflow `.github/workflows/deploy.yml` compila y publica el sitio en cada push a `main`. Una sola vez, en
+GitHub: **Settings → Pages → Build and deployment → Source: "GitHub Actions"**. (Con la opción "Deploy from a
+branch", Pages publica el código fuente sin compilar y la página queda en blanco.)
+
+El sitio queda en `https://ramiroperichon.github.io/LasChapas/`. El workflow define `BASE_PATH` con el nombre
+del repositorio para que todas las rutas apunten a esa subcarpeta.
+
 ## Dominio propio
 
 Copiá `.env.example` a `.env` y completá `VITE_SITE_URL` (por ejemplo `https://www.laschapas.com.ar`).
