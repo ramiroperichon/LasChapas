@@ -65,7 +65,8 @@ function seo(siteUrl: string, base: string): Plugin {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const siteUrl = (env.VITE_SITE_URL ?? '').replace(/\/+$/, '');
-  const base = '/';
+  // Subcarpeta donde se publica (GitHub Pages: /LasChapas/). Con dominio propio, '/'.
+  const base = `/${(env.BASE_PATH ?? '').replace(/^\/+|\/+$/g, '')}/`.replace('//', '/');
   return {
     base,
     plugins: [react(), seo(siteUrl, base)],
