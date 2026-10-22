@@ -12,7 +12,7 @@ export function Closing() {
       <div className="closing__ribs" aria-hidden="true" />
       <div className="wrap closing__inner">
         <div className="closing__cta">
-          <p className="mono closing__kicker" data-reveal="sign">
+          <p className="label closing__kicker" data-reveal="sign">
             {site.name} — {site.address.locality}
           </p>
           <Words as="p" className="closing__title display" parts={['Te esperamos', { em: 'bajo techo.' }]} />
@@ -33,7 +33,7 @@ export function Closing() {
             <p className="closing__cat">{site.category}</p>
           </div>
           <div>
-            <h2 className="mono closing__h">Dirección</h2>
+            <h2 className="label closing__h">Dirección</h2>
             <address>
               {site.address.street}
               <br />
@@ -43,7 +43,7 @@ export function Closing() {
             </address>
           </div>
           <div>
-            <h2 className="mono closing__h">Contacto</h2>
+            <h2 className="label closing__h">Contacto</h2>
             <ul role="list">
               <li>
                 <a className="link" href={telUrl}>
@@ -58,7 +58,7 @@ export function Closing() {
             </ul>
           </div>
           <div>
-            <h2 className="mono closing__h">Cómo llegar</h2>
+            <h2 className="label closing__h">Cómo llegar</h2>
             <ul role="list">
               <li>
                 <a className="link" href={site.mapsUrl} target="_blank" rel="noopener noreferrer">
@@ -69,7 +69,7 @@ export function Closing() {
           </div>
         </div>
 
-        <div className="closing__bottom mono">
+        <div className="closing__bottom label">
           <p>
             © {year} {site.name}. Todos los derechos reservados.
           </p>

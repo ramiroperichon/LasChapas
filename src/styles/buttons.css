@@ -15,9 +15,10 @@
   border: 1px solid var(--btn-bg);
   background: var(--btn-bg);
   color: var(--btn-fg);
-  font-family: var(--f-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.08em;
+  font-family: var(--f-label);
+  font-size: 0.71875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   overflow: hidden;
@@ -105,6 +106,13 @@
   --btn-fill: var(--marfil);
   --btn-fill-fg: var(--carbon);
   border-color: rgb(243 237 227 / 0.55);
+}
+
+.btn--light {
+  --btn-bg: var(--marfil);
+  --btn-fg: var(--carbon);
+  --btn-fill: var(--terracota-ink);
+  --btn-fill-fg: var(--marfil);
 }
 
 .btn--block {

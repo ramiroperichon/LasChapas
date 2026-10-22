@@ -21,7 +21,7 @@
   color: var(--carbon);
 }
 
-.picture--failed .mono {
+.picture--failed .label {
   background: var(--marfil);
   padding: 0.25rem 0.5rem;
 }
@@ -35,9 +35,9 @@
   padding: 0.3rem 0.55rem;
   background: rgb(29 27 25 / 0.72);
   color: var(--marfil);
-  font-family: var(--f-mono);
+  font-family: var(--f-label);
   font-size: 0.625rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   white-space: nowrap;
   pointer-events: none;

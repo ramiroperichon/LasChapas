@@ -34,7 +34,7 @@ export function Picture({ image, sizes, priority, className = '', ratio }: Props
   if (failed) {
     return (
       <div className={`picture picture--failed ${className}`} style={style} role="img" aria-label={image.alt}>
-        <span className="mono">Imagen no disponible</span>
+        <span className="label">Imagen no disponible</span>
       </div>
     );
   }

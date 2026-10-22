@@ -7,8 +7,8 @@
       1024,
       1200
     ],
-    "color": "rgb(136 120 104)",
-    "hash": "5bb7870b3d35"
+    "color": "rgb(120 120 120)",
+    "hash": "84b95fa68cf3"
   },
   "provisional-espacio-ventana": {
     "width": 1200,
@@ -18,8 +18,8 @@
       1024,
       1200
     ],
-    "color": "rgb(216 200 184)",
-    "hash": "4c39abf29929"
+    "color": "rgb(216 216 216)",
+    "hash": "c769a305eaf2"
   },
   "provisional-galeria-avenida": {
     "width": 1800,
@@ -30,8 +30,8 @@
       1600,
       1800
     ],
-    "color": "rgb(232 216 184)",
-    "hash": "8951875afe11"
+    "color": "rgb(56 56 56)",
+    "hash": "8a6e8597faa2"
   },
   "provisional-galeria-habitacion": {
     "width": 1600,
@@ -41,8 +41,8 @@
       1024,
       1600
     ],
-    "color": "rgb(216 200 184)",
-    "hash": "053cd05de790"
+    "color": "rgb(216 216 216)",
+    "hash": "0ad50f28a737"
   },
   "provisional-galeria-noche": {
     "width": 1200,
@@ -52,8 +52,8 @@
       1024,
       1200
     ],
-    "color": "rgb(56 40 40)",
-    "hash": "ac5ca74376ee"
+    "color": "rgb(40 40 40)",
+    "hash": "829dc3ae38fd"
   },
   "provisional-galeria-puerta": {
     "width": 1000,
@@ -62,8 +62,8 @@
       640,
       1000
     ],
-    "color": "rgb(184 152 120)",
-    "hash": "a45935821e57"
+    "color": "rgb(168 168 168)",
+    "hash": "ca16f5551180"
   },
   "provisional-galeria-rincon": {
     "width": 1000,
@@ -72,8 +72,8 @@
       640,
       1000
     ],
-    "color": "rgb(136 104 88)",
-    "hash": "98b8f89b72e5"
+    "color": "rgb(216 216 216)",
+    "hash": "3bcf454bc3d6"
   },
   "provisional-galeria-techo": {
     "width": 1400,
@@ -83,8 +83,8 @@
       1024,
       1400
     ],
-    "color": "rgb(152 168 168)",
-    "hash": "ef7577d2d41a"
+    "color": "rgb(168 168 168)",
+    "hash": "86e0dd61b1b7"
   },
   "provisional-galeria-textil": {
     "width": 1400,
@@ -94,8 +94,8 @@
       1024,
       1400
     ],
-    "color": "rgb(232 232 216)",
-    "hash": "594156f42ff8"
+    "color": "rgb(248 248 248)",
+    "hash": "0158e19f0dba"
   },
   "provisional-hero-fachada": {
     "width": 2400,
@@ -106,7 +106,7 @@
       1600,
       2400
     ],
-    "color": "rgb(56 40 40)",
-    "hash": "59d0ad4269b1"
+    "color": "rgb(24 24 24)",
+    "hash": "f930f336947a"
   }
 }

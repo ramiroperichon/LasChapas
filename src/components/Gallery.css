@@ -78,9 +78,9 @@
   border-radius: 50%;
   background: var(--marfil);
   color: var(--carbon);
-  font-family: var(--f-mono);
+  font-family: var(--f-label);
   font-size: 0.6875rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   transform: scale(0);
   transition: transform 0.5s var(--ease-out);

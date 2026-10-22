@@ -47,7 +47,7 @@ export function Contact() {
 
             <div className="contact__direct">
               <a className="contact__phone" href={telUrl} data-reveal="up" style={{ '--d': 250 } as CSSProperties}>
-                <span className="mono">
+                <span className="label">
                   <PhoneIcon className="contact__phone-icon" /> Llamar
                 </span>
                 <span className="contact__phone-number">{site.phone.display}</span>
@@ -63,7 +63,7 @@ export function Contact() {
           <form className="inquiry" onSubmit={submit} data-reveal="up" style={{ '--d': 200 } as CSSProperties}>
             <div className="inquiry__head">
               <h3 className="inquiry__title">Armá tu consulta</h3>
-              <p className="mono">Se envía por WhatsApp</p>
+              <p className="label">Se envía por WhatsApp</p>
             </div>
 
             <div className="inquiry__row">
@@ -114,7 +114,7 @@ export function Contact() {
               <textarea id={`${id}-notes`} rows={3} value={q.notes} onChange={set('notes')} placeholder="Algo que quieras contarnos o preguntar" />
             </div>
 
-            <p className="inquiry__summary mono" aria-live="polite">
+            <p className="inquiry__summary label" aria-live="polite">
               {n && n > 0 ? `${n} ${n === 1 ? 'noche' : 'noches'}` : 'Elegí las fechas (opcional)'}
             </p>
 

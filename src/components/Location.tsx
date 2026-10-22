@@ -24,9 +24,9 @@ export function Location() {
               </span>
             </h2>
             <address className="location__place" data-reveal="sign" style={{ '--d': 200 } as CSSProperties}>
-              <span className="mono">{site.address.locality}</span>
-              <span className="mono">{site.address.region}</span>
-              <span className="mono">{site.address.country}</span>
+              <span className="label">{site.address.locality}</span>
+              <span className="label">{site.address.region}</span>
+              <span className="label">{site.address.country}</span>
             </address>
             <p className="location__text" data-reveal="up" style={{ '--d': 300 } as CSSProperties}>
               Abrí la ubicación exacta en Google Maps para ver cómo llegar. Si tenés dudas sobre el acceso, escribinos.
@@ -110,8 +110,8 @@ function PlanSketch() {
           </text>
         </g>
       </svg>
-      <span className="plan__legend mono">Esquema ilustrativo · no a escala</span>
-      <span className="plan__cta mono">
+      <span className="plan__legend label">Esquema ilustrativo · no a escala</span>
+      <span className="plan__cta label">
         Ver en Google Maps <ArrowUpRightIcon className="plan__cta-icon" />
       </span>
     </a>
