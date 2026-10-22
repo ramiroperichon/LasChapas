@@ -1,0 +1,155 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgb(20 18 16 / 0.97);
+  color: var(--marfil);
+  overscroll-behavior: contain;
+}
+
+.lightbox[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.lightbox::backdrop {
+  background: transparent;
+}
+
+.lightbox :focus-visible {
+  outline-color: var(--terracota-light);
+}
+
+.lightbox__top,
+.lightbox__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem var(--gutter);
+}
+
+.lightbox__nav {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.lightbox__top p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  color: var(--on-dark-muted);
+}
+
+.lightbox__count {
+  color: var(--marfil);
+}
+
+.lightbox__tag {
+  color: var(--terracota-light);
+}
+
+.lightbox__btn {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgb(243 237 227 / 0.3);
+  background: transparent;
+  color: var(--marfil);
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.lightbox__btn svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+@media (hover: hover) {
+  .lightbox__btn:hover {
+    background: var(--marfil);
+    color: var(--carbon);
+  }
+}
+
+.lightbox__stage {
+  display: grid;
+  place-items: center;
+  padding: 0 var(--gutter);
+  min-height: 0;
+  touch-action: pan-y;
+}
+
+.lightbox__figure {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  container-type: size;
+}
+
+.lightbox__picture {
+  width: min(100cqw, 100cqh * var(--ar));
+  height: auto;
+}
+
+.lightbox__dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.lightbox__dots span {
+  width: 1.5rem;
+  height: 2px;
+  background: rgb(243 237 227 / 0.25);
+  transition: background 0.4s;
+}
+
+.lightbox__dots span[data-active] {
+  background: var(--terracota-light);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] {
+    animation: lb-in 0.5s var(--ease-out) both;
+  }
+  .lightbox[open] .lightbox__figure {
+    animation: lb-figure 0.75s var(--ease-out) both;
+  }
+  .lightbox[open] .lightbox__figure[data-dir='-1'] {
+    --from: -3rem;
+  }
+  .lightbox[data-closing] {
+    animation: lb-out 0.32s var(--ease-in-out) both;
+  }
+}
+
+@keyframes lb-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes lb-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes lb-figure {
+  from {
+    opacity: 0;
+    transform: translateX(var(--from, 3rem));
+    clip-path: inset(0 6% 0 6%);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}

@@ -1,0 +1,243 @@
+.location {
+  background: var(--marfil);
+}
+
+.location__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3rem;
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.location__info {
+  grid-column: 1 / 6;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.location__address {
+  font-size: clamp(3rem, 1.5rem + 5.5vw, 7rem);
+  line-height: 0.92;
+}
+
+.location__address .w {
+  display: block;
+  width: fit-content;
+}
+
+.location__address em {
+  display: inline-block;
+  color: var(--terracota-ink);
+}
+
+.location__place {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+  font-style: normal;
+}
+
+.location__place span + span::before {
+  content: '/';
+  margin-inline: 0.75rem;
+  color: var(--terracota-ink);
+}
+
+.location__text {
+  color: var(--ink-muted);
+  max-width: 28rem;
+}
+
+.location__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.location__map {
+  grid-column: 7 / -1;
+}
+
+.location__iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 6 / 5;
+  border: 1px solid var(--carbon);
+  filter: grayscale(0.6) sepia(0.15);
+}
+
+/* Esquema de plano */
+.plan {
+  position: relative;
+  display: block;
+  aspect-ratio: 6 / 5;
+  background-color: var(--marfil-2);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: -1px -1px;
+  border: 1px solid var(--carbon);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.plan > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.plan__blocks rect {
+  fill: var(--marfil);
+  stroke: var(--ink-muted);
+  stroke-width: 1;
+}
+
+.plan__avenue line {
+  stroke: var(--carbon);
+  stroke-width: 1.5;
+}
+
+.plan__avenue .plan__axis {
+  stroke: var(--terracota);
+  stroke-width: 1;
+  stroke-dasharray: 6 8;
+}
+
+.plan__label {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  fill: var(--carbon);
+}
+
+.plan__pin circle {
+  fill: var(--terracota);
+}
+
+.plan__pin .plan__halo {
+  fill: var(--terracota);
+  opacity: 0.18;
+}
+
+.plan__north circle {
+  fill: none;
+  stroke: var(--carbon);
+}
+
+.plan__north path {
+  fill: var(--carbon);
+}
+
+.plan__north text {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  fill: var(--carbon);
+}
+
+.plan__legend,
+.plan__cta {
+  position: absolute;
+  bottom: 0.75rem;
+  padding: 0.3rem 0.55rem;
+  background: var(--marfil);
+  border: 1px solid var(--line);
+}
+
+.plan__legend {
+  left: 0.75rem;
+  font-size: 0.625rem;
+  color: var(--ink-muted);
+}
+
+.plan__cta {
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--carbon);
+  color: var(--marfil);
+  border-color: var(--carbon);
+  transition: background 0.3s;
+}
+
+.plan__cta-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+@media (hover: hover) {
+  .plan:hover .plan__cta {
+    background: var(--terracota-ink);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .plan[data-reveal] .plan__blocks rect,
+  .js .plan[data-reveal] .plan__avenue line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    fill-opacity: 0;
+    transition:
+      stroke-dashoffset 1.4s var(--ease-in-out),
+      fill-opacity 0.8s ease;
+    transition-delay: calc(var(--i, 0) * 30ms);
+  }
+  .js .plan[data-reveal] .plan__avenue line {
+    transition-delay: 0.3s;
+  }
+  .js .plan[data-reveal] .plan__avenue .plan__axis {
+    stroke-dasharray: 6 8;
+    stroke-dashoffset: 0;
+    opacity: 0;
+    transition: opacity 0.8s 1.2s;
+  }
+  .js .plan[data-reveal] .plan__pin {
+    opacity: 0;
+    translate: 0 -24px;
+    transition:
+      opacity 0.6s 1.3s,
+      translate 0.9s var(--ease-out) 1.3s;
+  }
+  .js .plan[data-reveal] .plan__label {
+    opacity: 0;
+    transition: opacity 0.8s 1s;
+  }
+  .js .plan[data-visible] .plan__blocks rect,
+  .js .plan[data-visible] .plan__avenue line {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+  .js .plan[data-visible] .plan__avenue .plan__axis,
+  .js .plan[data-visible] .plan__pin,
+  .js .plan[data-visible] .plan__label {
+    opacity: 1;
+    translate: 0 0;
+  }
+  /* El halo del marcador late dos veces y se detiene */
+  .js .plan[data-visible] .plan__halo {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: halo 1.6s var(--ease-out) 2s 2;
+  }
+}
+
+@keyframes halo {
+  from {
+    transform: scale(0.4);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .location__info,
+  .location__map {
+    grid-column: 1 / -1;
+  }
+}

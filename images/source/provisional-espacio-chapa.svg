@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+<!-- ILUSTRACIÓN PROVISIONAL — no es una fotografía de Las Chapas -->
+<defs>
+<linearGradient id="r" x1="0" x2="1"><stop offset="0" stop-color="#3d3a36"/><stop offset=".3" stop-color="#8e887f"/><stop offset=".5" stop-color="#d8d0c2"/><stop offset=".62" stop-color="#9a948a"/><stop offset="1" stop-color="#3d3a36"/></linearGradient>
+<pattern id="ribs" width="60" height="900" patternUnits="userSpaceOnUse"><rect width="60" height="900" fill="url(#r)"/></pattern>
+<linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffcf9a" stop-opacity=".55"/><stop offset=".5" stop-color="#c47652" stop-opacity=".15"/><stop offset="1" stop-color="#1d1b19" stop-opacity=".6"/></linearGradient>
+<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .4  0 0 0 .9 -.35"/></filter>
+</defs>
+<g transform="rotate(-8 600 450) translate(-200 -200)"><rect width="1600" height="1300" fill="url(#ribs)"/></g>
+<rect width="1200" height="900" fill="url(#light)"/>
+<g stroke="#2a2522" stroke-width="2" opacity=".35"><circle cx="300" cy="200" r="7"/><circle cx="420" cy="183" r="7"/><circle cx="540" cy="166" r="7"/><circle cx="660" cy="149" r="7"/><circle cx="780" cy="132" r="7"/></g>
+<rect width="1200" height="900" filter="url(#grain)" opacity=".6"/>
+</svg>

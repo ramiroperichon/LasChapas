@@ -1,0 +1,64 @@
+.rib-band {
+  position: relative;
+  height: clamp(5rem, 10vw, 9rem);
+  background: var(--carbon);
+  overflow: hidden;
+}
+
+.rib-band__ribs {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.rib-band__ribs span {
+  flex: 1;
+  background: linear-gradient(90deg, #2b2825 0%, #4a4540 40%, #6b655e 52%, #2b2825 100%);
+  transform-origin: bottom;
+}
+
+.rib-band__plate {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  padding: 0.6rem 1rem;
+  background: var(--marfil);
+  color: var(--carbon);
+  white-space: nowrap;
+  border: 1px solid var(--carbon);
+  box-shadow: 0 0 0 4px var(--marfil);
+}
+
+.rib-band__plate span {
+  color: var(--terracota-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .rib-band[data-reveal] .rib-band__ribs span {
+    transform: scaleY(0);
+    transition: transform 0.9s var(--ease-out);
+    transition-delay: calc(var(--i) * 18ms);
+  }
+  .js .rib-band[data-reveal] .rib-band__plate {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    transition:
+      opacity 0.8s var(--ease-out) 0.6s,
+      transform 0.8s var(--ease-out) 0.6s;
+  }
+  .js .rib-band[data-visible] .rib-band__ribs span,
+  .js .rib-band[data-visible] .rib-band__plate {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .rib-band__ribs span:nth-child(n + 25) {
+    display: none;
+  }
+  .rib-band__plate {
+    font-size: 0.625rem;
+  }
+}

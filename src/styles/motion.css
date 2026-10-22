@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Lenguaje de movimiento
+   Cada tipo de elemento entra de una manera propia:
+   - "persiana"   imágenes: una cortina de chapa sube y descubre la foto.
+   - "lineas"     titulares: cada palabra sube desde una máscara.
+   - "senal"      etiquetas y datos: se escriben de izquierda a derecha.
+   - "regla"      líneas de plano: se dibujan.
+   - "subir"      párrafos y bloques: desplazamiento corto + opacidad.
+   - "escala"     galería: la foto se asienta desde un leve zoom.
+   Solo se ocultan elementos si hay JavaScript (html.js) y no se pidió
+   movimiento reducido. Los estados finales son siempre los naturales.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* subir */
+  .js [data-reveal='up'] {
+    opacity: 0;
+    transform: translate3d(0, 2rem, 0);
+    transition:
+      opacity 1s var(--ease-out),
+      transform 1.1s var(--ease-out);
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+
+  /* senal */
+  .js [data-reveal='sign'] {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1s var(--ease-in-out);
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+
+  /* regla */
+  .js [data-reveal='rule'] {
+    transform: scaleX(0);
+    transition: transform 1.4s var(--ease-in-out);
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+
+  /* lineas: el contenedor es el disparador, las palabras se escalonan */
+  .js [data-reveal='words'] .w > span {
+    transform: translate3d(0, 105%, 0);
+    transition: transform 1.1s var(--ease-out);
+    transition-delay: calc(var(--d, 0) * 1ms + var(--i, 0) * 45ms);
+  }
+
+  /* persiana: cortina con nervaduras que sube */
+  .js [data-reveal='shutter'] .shutter {
+    transform: none;
+    transition: transform 1.25s var(--ease-shutter);
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+  .js [data-reveal='shutter'] .shutter__media {
+    transform: scale(1.12);
+    transition: transform 2s var(--ease-out);
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+
+  /* escala */
+  .js [data-reveal='scale'] {
+    clip-path: inset(12% 8% 12% 8%);
+    transition: clip-path 1.2s var(--ease-in-out);
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+  .js [data-reveal='scale'] img {
+    transform: scale(1.25);
+    transition: transform 1.6s var(--ease-out);
+    transition-delay: calc(var(--d, 0) * 1ms);
+  }
+
+  /* Estado visible */
+  .js [data-reveal][data-visible] {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+  .js [data-reveal='words'][data-visible] .w > span,
+  .js [data-reveal='scale'][data-visible] img,
+  .js [data-reveal='shutter'][data-visible] .shutter__media {
+    transform: none;
+  }
+  .js [data-reveal='shutter'][data-visible] .shutter {
+    transform: translate3d(0, -101%, 0);
+  }
+}
+
+/* Palabras enmascaradas */
+.w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  /* deja lugar a los descendentes de las itálicas */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.w > span {
+  display: inline-block;
+}
+
+/* Cortina de chapa (persiana) */
+.shutter-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.shutter {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--ribs-dark);
+  transform: translate3d(0, -101%, 0);
+  pointer-events: none;
+}
+
+.shutter::after {
+  /* riel inferior de la persiana */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: var(--terracota);
+}
+
+.shutter-frame--light .shutter {
+  background: var(--ribs-zinc);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shutter {
+    display: none;
+  }
+}
+
+/* Parallax: el JS mueve --py; el contenido se agranda para no dejar huecos */
+[data-parallax] {
+  will-change: transform;
+}

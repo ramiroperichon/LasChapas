@@ -1,0 +1,136 @@
+.intro {
+  background: var(--marfil);
+}
+
+.intro__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: clamp(2.5rem, 5vw, 4rem);
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+.intro__title {
+  grid-column: 1 / 11;
+  grid-row: 1;
+}
+
+.intro__title em {
+  color: var(--terracota-ink);
+}
+
+.intro__text {
+  grid-column: 1 / 6;
+  grid-row: 2;
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  color: var(--ink-muted);
+  padding-top: clamp(0rem, 6vw, 6rem);
+}
+
+.intro__text .lead {
+  color: var(--ink);
+}
+
+.facts {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.facts__row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts dt {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--ink);
+  padding-top: 0.2rem;
+}
+
+.facts__num {
+  color: var(--terracota-ink);
+}
+
+.facts dd {
+  color: var(--ink);
+}
+
+.intro__figure {
+  position: relative;
+  display: grid;
+  align-self: start;
+  align-content: start;
+  gap: 0.75rem;
+}
+
+.intro__figure figcaption {
+  color: var(--ink-muted);
+}
+
+.intro__figure--tall {
+  grid-column: 7 / -1;
+  grid-row: 2 / span 2;
+}
+
+.intro__figure--tall figcaption {
+  text-align: right;
+}
+
+.intro__figure--tall .provisional-tag {
+  left: auto;
+  right: 0.75rem;
+}
+
+.intro__figure--small {
+  grid-column: 4 / 8;
+  grid-row: 3;
+  position: relative;
+  z-index: 2;
+}
+
+.intro__figure--small .shutter-frame {
+  outline: clamp(0.5rem, 1vw, 0.9rem) solid var(--marfil);
+}
+
+.intro__parallax {
+  margin-block: -6%;
+}
+
+@media (max-width: 1023px) {
+  .intro__title {
+    grid-column: 1 / -1;
+  }
+  .intro__text {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
+  .intro__figure--tall {
+    grid-column: 1 / 11;
+    grid-row: 3;
+  }
+  .intro__figure--small {
+    grid-column: 6 / -1;
+    grid-row: 4;
+    margin: -2rem 0 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .facts__row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+  .intro__figure--tall {
+    grid-column: 1 / -2;
+  }
+  .intro__figure--small {
+    grid-column: 5 / -1;
+    margin-top: 0;
+  }
+}

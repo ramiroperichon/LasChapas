@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1500" width="2400" height="1500">
+<!-- ILUSTRACIÓN PROVISIONAL — no es una fotografía de Las Chapas -->
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f1b19"/><stop offset=".42" stop-color="#4e3328"/><stop offset=".74" stop-color="#b86c4b"/><stop offset="1" stop-color="#e4b083"/></linearGradient>
+<radialGradient id="sun" cx="1820" cy="1040" r="760" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffd8a6" stop-opacity=".95"/><stop offset=".22" stop-color="#eea06c" stop-opacity=".5"/><stop offset="1" stop-color="#b86c4b" stop-opacity="0"/></radialGradient>
+<linearGradient id="rib" x1="0" x2="1"><stop offset="0" stop-color="#4f4b46"/><stop offset=".35" stop-color="#9c968c"/><stop offset=".55" stop-color="#b9b2a6"/><stop offset="1" stop-color="#4f4b46"/></linearGradient>
+<pattern id="ribs" width="26" height="40" patternUnits="userSpaceOnUse"><rect width="26" height="40" fill="url(#rib)"/></pattern>
+<linearGradient id="wall" x1="0" x2="1"><stop offset="0" stop-color="#a77d5d"/><stop offset=".6" stop-color="#d2a77f"/><stop offset="1" stop-color="#e3bb90"/></linearGradient>
+<linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd59a"/><stop offset="1" stop-color="#e2894c"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b211c"/><stop offset="1" stop-color="#110e0c"/></linearGradient>
+<linearGradient id="roofshade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".05"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .4  0 0 0 .9 -.35"/></filter>
+</defs>
+<rect width="2400" height="1500" fill="url(#sky)"/>
+<rect width="2400" height="1500" fill="url(#sun)"/>
+<path d="M0 1090 C160 1040 260 1075 380 1060 S620 1030 760 1066 S1060 1050 1200 1072 S1500 1040 1660 1068 S2000 1046 2160 1070 S2330 1060 2400 1064 V1500 H0Z" fill="#2e221c"/>
+<rect y="1168" width="2400" height="332" fill="url(#ground)"/>
+<rect x="430" y="840" width="1460" height="340" fill="url(#wall)"/>
+<rect x="430" y="840" width="1460" height="340" fill="#000" opacity=".06"/>
+<polygon points="360,850 1960,850 1890,700 430,700" fill="url(#ribs)"/>
+<polygon points="360,850 1960,850 1890,700 430,700" fill="url(#roofshade)"/>
+<rect x="350" y="846" width="1620" height="14" fill="#231d19"/>
+<rect x="430" y="860" width="1460" height="46" fill="#000" opacity=".22"/>
+<g fill="url(#glow)"><rect x="560" y="945" width="230" height="150"/><rect x="1330" y="945" width="230" height="150"/><rect x="1610" y="945" width="190" height="150"/></g>
+<g fill="#2a1f19"><rect x="671" y="945" width="8" height="150"/><rect x="1441" y="945" width="8" height="150"/><rect x="1701" y="945" width="8" height="150"/></g>
+<rect x="1010" y="915" width="170" height="265" fill="#6c3a27"/><rect x="1010" y="915" width="170" height="265" fill="url(#roofshade)" opacity=".7"/><rect x="1150" y="1040" width="10" height="28" fill="#e7c08f"/>
+<polygon points="430,1180 1890,1180 2300,1260 0,1260" fill="#000" opacity=".28"/>
+<g fill="#16110e"><rect x="238" y="760" width="26" height="430"/><ellipse cx="250" cy="720" rx="230" ry="150"/><ellipse cx="120" cy="790" rx="160" ry="110"/><ellipse cx="390" cy="800" rx="170" ry="100"/><ellipse cx="260" cy="610" rx="150" ry="110"/></g>
+<g fill="#16110e"><rect x="2148" y="820" width="20" height="360"/><ellipse cx="2160" cy="790" rx="180" ry="120"/><ellipse cx="2290" cy="850" rx="140" ry="90"/></g>
+<rect x="0" y="1318" width="2400" height="4" fill="#e4b083" opacity=".22"/>
+<rect width="2400" height="1500" filter="url(#grain)" opacity=".55"/>
+</svg>
