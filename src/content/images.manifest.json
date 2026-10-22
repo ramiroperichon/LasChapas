@@ -1,0 +1,112 @@
+{
+  "provisional-espacio-chapa": {
+    "width": 1200,
+    "height": 900,
+    "widths": [
+      640,
+      1024,
+      1200
+    ],
+    "color": "rgb(136 120 104)",
+    "hash": "5bb7870b3d35"
+  },
+  "provisional-espacio-ventana": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      640,
+      1024,
+      1200
+    ],
+    "color": "rgb(216 200 184)",
+    "hash": "4c39abf29929"
+  },
+  "provisional-galeria-avenida": {
+    "width": 1800,
+    "height": 1100,
+    "widths": [
+      640,
+      1024,
+      1600,
+      1800
+    ],
+    "color": "rgb(232 216 184)",
+    "hash": "8951875afe11"
+  },
+  "provisional-galeria-habitacion": {
+    "width": 1600,
+    "height": 1100,
+    "widths": [
+      640,
+      1024,
+      1600
+    ],
+    "color": "rgb(216 200 184)",
+    "hash": "053cd05de790"
+  },
+  "provisional-galeria-noche": {
+    "width": 1200,
+    "height": 1500,
+    "widths": [
+      640,
+      1024,
+      1200
+    ],
+    "color": "rgb(56 40 40)",
+    "hash": "ac5ca74376ee"
+  },
+  "provisional-galeria-puerta": {
+    "width": 1000,
+    "height": 1400,
+    "widths": [
+      640,
+      1000
+    ],
+    "color": "rgb(184 152 120)",
+    "hash": "a45935821e57"
+  },
+  "provisional-galeria-rincon": {
+    "width": 1000,
+    "height": 1300,
+    "widths": [
+      640,
+      1000
+    ],
+    "color": "rgb(136 104 88)",
+    "hash": "98b8f89b72e5"
+  },
+  "provisional-galeria-techo": {
+    "width": 1400,
+    "height": 1000,
+    "widths": [
+      640,
+      1024,
+      1400
+    ],
+    "color": "rgb(152 168 168)",
+    "hash": "ef7577d2d41a"
+  },
+  "provisional-galeria-textil": {
+    "width": 1400,
+    "height": 1000,
+    "widths": [
+      640,
+      1024,
+      1400
+    ],
+    "color": "rgb(232 232 216)",
+    "hash": "594156f42ff8"
+  },
+  "provisional-hero-fachada": {
+    "width": 2400,
+    "height": 1500,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "rgb(56 40 40)",
+    "hash": "59d0ad4269b1"
+  }
+}

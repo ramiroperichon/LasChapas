@@ -1,0 +1,9 @@
+{
+  "name": "Las Chapas · Hospedaje temporario",
+  "short_name": "Las Chapas",
+  "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }, { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }],
+  "theme_color": "#1d1b19",
+  "background_color": "#f3ede3",
+  "display": "standalone",
+  "start_url": "/"
+}

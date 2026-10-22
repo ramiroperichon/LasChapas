@@ -1,0 +1,55 @@
+.picture {
+  position: relative;
+  display: block;
+  aspect-ratio: var(--ratio);
+  background-color: var(--placeholder, var(--arena));
+  overflow: hidden;
+}
+
+.picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Si la imagen no carga: placa con nervaduras, sin ícono roto. */
+.picture--failed {
+  display: grid;
+  place-items: end start;
+  padding: 1rem;
+  background: var(--ribs-zinc);
+  color: var(--carbon);
+}
+
+.picture--failed .mono {
+  background: var(--marfil);
+  padding: 0.25rem 0.5rem;
+}
+
+/* Marca discreta para imágenes de referencia */
+.provisional-tag {
+  position: absolute;
+  z-index: 3;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.3rem 0.55rem;
+  background: rgb(29 27 25 / 0.72);
+  color: var(--marfil);
+  font-family: var(--f-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .gallery .provisional-tag {
+    left: 0.4rem;
+    bottom: 0.4rem;
+    font-size: 0.5625rem;
+  }
+  .gallery .provisional-tag__more {
+    display: none;
+  }
+}
