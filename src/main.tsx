@@ -1,9 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@fontsource-variable/fraunces/opsz.css';
-import '@fontsource-variable/fraunces/opsz-italic.css';
-import '@fontsource-variable/instrument-sans/wght.css';
-import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource-variable/eb-garamond/wght.css';
+import '@fontsource-variable/eb-garamond/wght-italic.css';
+import '@fontsource-variable/jost/wght.css';
 import './styles/tokens.css';
 import './styles/base.css';
 import './styles/buttons.css';

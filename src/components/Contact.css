@@ -43,7 +43,7 @@
   text-decoration: none;
 }
 
-.contact__phone .mono {
+.contact__phone .label {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -58,7 +58,7 @@
 .contact__phone-number {
   font-family: var(--f-display);
   font-size: clamp(2.5rem, 1.5rem + 4vw, 4.75rem);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1;
   font-variant-numeric: lining-nums;
@@ -93,14 +93,14 @@
   border-bottom: 1px solid var(--line);
 }
 
-.inquiry__head .mono {
+.inquiry__head .label {
   color: var(--ink-muted);
 }
 
 .inquiry__title {
   font-family: var(--f-display);
   font-size: var(--fs-h3);
-  font-weight: 350;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.015em;
 }
@@ -118,9 +118,9 @@
 }
 
 .field label {
-  font-family: var(--f-mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.08em;
+  font-family: var(--f-label);
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 

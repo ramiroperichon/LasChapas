@@ -42,7 +42,7 @@ export function Intro() {
             <dl className="facts">
               {facts.map(({ term, value }, i) => (
                 <div className="facts__row" key={term} data-reveal="up" style={{ '--d': 100 + i * 90 } as CSSProperties}>
-                  <dt className="mono">
+                  <dt className="label">
                     <span className="facts__num">{String(i + 1).padStart(2, '0')}</span>
                     {term}
                   </dt>
@@ -62,7 +62,7 @@ export function Intro() {
               <div className="shutter" aria-hidden="true" />
               {tall.provisional && <ProvisionalTag />}
             </div>
-            <figcaption className="mono" data-reveal="sign" style={{ '--d': 500 } as CSSProperties}>
+            <figcaption className="label" data-reveal="sign" style={{ '--d': 500 } as CSSProperties}>
               Fig. 01 — Luz de tarde
             </figcaption>
           </figure>
@@ -75,7 +75,7 @@ export function Intro() {
               <div className="shutter" aria-hidden="true" />
               {small.provisional && <ProvisionalTag />}
             </div>
-            <figcaption className="mono" data-reveal="sign" style={{ '--d': 700 } as CSSProperties}>
+            <figcaption className="label" data-reveal="sign" style={{ '--d': 700 } as CSSProperties}>
               Fig. 02 — Chapa
             </figcaption>
           </figure>

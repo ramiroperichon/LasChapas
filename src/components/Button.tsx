@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
 
 type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  variant?: 'solid' | 'accent' | 'ghost' | 'ghost-light';
+  variant?: 'solid' | 'accent' | 'ghost' | 'ghost-light' | 'light';
   icon?: ReactNode;
   block?: boolean;
   children: string;

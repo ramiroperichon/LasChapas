@@ -1,8 +1,8 @@
 /* ==========================================================================
    Las Chapas — sistema visual
    Concepto: "bajo techo". La chapa acanalada (el nombre del lugar) se vuelve
-   un sistema gráfico: nervaduras verticales, cortinas que suben, reglas de
-   plano y señalética en monoespaciada. Paleta de materiales: carbón, marfil,
+   un sistema gráfico: nervaduras verticales, cortinas que se abren y reglas
+   finas. Tipografía clásica y liviana; imágenes en blanco y negro. Paleta de materiales: carbón, marfil,
    arena, terracota y zinc.
    ========================================================================== */
 :root {
@@ -27,17 +27,17 @@
   --line-dark: rgb(243 237 227 / 0.16);
 
   /* Tipografía */
-  --f-display: 'Fraunces Variable', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-  --f-text: 'Instrument Sans Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --f-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --f-display: 'EB Garamond Variable', 'EB Garamond', Garamond, 'Iowan Old Style', 'Times New Roman', serif;
+  --f-text: 'Jost Variable', Jost, Futura, 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --f-label: var(--f-text);
 
-  --fs-mono: 0.75rem;
+  --fs-label: 0.6875rem;
   --fs-small: 0.875rem;
   --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   --fs-lead: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
-  --fs-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
-  --fs-h2: clamp(2.25rem, 1.4rem + 3.6vw, 5rem);
-  --fs-display: clamp(4.25rem, 1rem + 15vw, 17rem);
+  --fs-h3: clamp(1.75rem, 1.4rem + 1.4vw, 2.6rem);
+  --fs-h2: clamp(2.4rem, 1.5rem + 3.8vw, 5.25rem);
+  --fs-display: clamp(4.25rem, 1.25rem + 12vw, 13.5rem);
 
   /* Espaciado y grilla */
   --gutter: clamp(1rem, 0.4rem + 3vw, 3.5rem);

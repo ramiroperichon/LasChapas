@@ -75,7 +75,7 @@ export function Lightbox({ images, index, onChange, onClose }: Props) {
       {image && index !== null && (
         <>
           <div className="lightbox__top">
-            <p className="mono" aria-live="polite">
+            <p className="label" aria-live="polite">
               <span className="lightbox__count">
                 {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
               </span>

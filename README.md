@@ -16,11 +16,11 @@ npm run preview   # sirve dist/ para revisar el build
 El nombre del lugar es el punto de partida: la **chapa acanalada** se convierte en sistema gráfico.
 
 - **Materiales como paleta**: carbón, marfil, arena, terracota y zinc (`src/styles/tokens.css`).
-- **Tipografía**: Fraunces (serif expresiva, con itálicas para los acentos), Instrument Sans para lectura y
-  JetBrains Mono para la señalética (etiquetas numeradas, cotas, datos). Todas autoalojadas, con alternativas
-  de sistema.
-- **Recursos de plano**: reglas finas, cotas ("Av. San Martín" en el hero), fichas técnicas y un esquema de
-  manzanas en la sección de ubicación.
+- **Tipografía**: EB Garamond (serif clásica, con itálicas reales) para títulos y Jost (sans geométrica) para
+  texto y etiquetas en mayúsculas espaciadas. Autoalojadas, con alternativas de sistema.
+- **Imágenes en blanco y negro**: el tratamiento se aplica al optimizar (`MONOCHROME` en
+  `scripts/build-images.mjs`), así que vale también para las fotos que se agreguen.
+- **Recursos de plano**: reglas finas, fichas técnicas y un esquema de manzanas en la sección de ubicación.
 - **Nervaduras**: la franja separadora, el pie, el favicon y la cortina de las animaciones.
 
 ### Lenguaje de movimiento
@@ -29,7 +29,8 @@ Cada tipo de elemento tiene su propia entrada (`src/styles/motion.css`):
 
 | Nombre    | Dónde                          | Movimiento                                              |
 |-----------|--------------------------------|---------------------------------------------------------|
-| persiana  | Hero e imágenes de "El espacio"| una cortina de chapa sube y descubre la foto            |
+| telón     | Hero                           | una línea se traza, el telón se abre, la imagen se asienta, se dibuja el marco y el nombre se enfoca letra por letra |
+| persiana  | Imágenes de "El espacio"       | una cortina de chapa sube y descubre la foto            |
 | palabras  | Titulares                      | cada palabra sube desde una máscara, escalonada         |
 | señal     | Etiquetas y datos              | se "escriben" de izquierda a derecha (clip-path)         |
 | regla     | Líneas de sección              | se dibujan                                              |

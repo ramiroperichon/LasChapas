@@ -107,9 +107,9 @@
 }
 
 .plan__label {
-  font-family: var(--f-mono);
+  font-family: var(--f-label);
   font-size: 13px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   fill: var(--carbon);
 }
 
@@ -132,7 +132,7 @@
 }
 
 .plan__north text {
-  font-family: var(--f-mono);
+  font-family: var(--f-label);
   font-size: 11px;
   fill: var(--carbon);
 }

@@ -147,7 +147,7 @@ export function Header() {
             {[...navItems, { id: 'contacto', label: 'Contacto' }].map(({ id, label }, i) => (
               <li key={id} style={{ '--i': i } as CSSProperties}>
                 <a href={`#${id}`}>
-                  <span className="mono">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="label">{String(i + 1).padStart(2, '0')}</span>
                   {label}
                 </a>
               </li>
@@ -158,7 +158,7 @@ export function Header() {
           <a className="btn btn--accent btn--block" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
             <ButtonInner icon={<WhatsAppIcon className="btn__icon" />}>Consultar por WhatsApp</ButtonInner>
           </a>
-          <p className="mono">
+          <p className="label">
             {site.address.locality} · {site.address.region}
           </p>
         </div>

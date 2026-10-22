@@ -61,7 +61,7 @@ export function Gallery() {
                       Ver
                     </span>
                   </span>
-                  <span className="gallery__caption mono" aria-hidden="true">
+                  <span className="gallery__caption label" aria-hidden="true">
                     <span>{String(i + 1).padStart(2, '0')}</span>
                     {image.caption}
                   </span>

@@ -27,8 +27,7 @@
   font-size: clamp(3.25rem, 1rem + 10vw, 12rem);
   line-height: 0.88;
   letter-spacing: -0.04em;
-  font-weight: 300;
-  font-variation-settings: 'opsz' 144;
+  font-weight: 400;
 }
 
 .closing__title em {
@@ -126,9 +125,9 @@
   padding: 0 1.15rem 0 1rem;
   background: var(--terracota-ink);
   color: var(--marfil);
-  font-family: var(--f-mono);
+  font-family: var(--f-label);
   font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   box-shadow: 0 10px 30px -10px rgb(20 18 16 / 0.55);
