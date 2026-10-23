@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { site, fullAddress } from './src/content/site';
-import { heroImage, imageMeta } from './src/content/images';
+import { heroImage, heroSizes, imageMeta } from './src/content/images';
 
 /**
  * SEO en build: datos estructurados, preload de la imagen del hero y,
@@ -35,7 +35,7 @@ function seo(siteUrl: string, base: string): Plugin {
     name: 'las-chapas-seo',
     transformIndexHtml(html) {
       const head = [
-        `<link rel="preload" as="image" type="image/avif" imagesrcset="${heroSrcset('avif')}" imagesizes="100vw" fetchpriority="high">`,
+        `<link rel="preload" as="image" type="image/avif" imagesrcset="${heroSrcset('avif')}" imagesizes="${heroSizes}" fetchpriority="high">`,
         siteUrl && `<link rel="canonical" href="${siteUrl}${base}">`,
         siteUrl && `<meta property="og:url" content="${siteUrl}${base}">`,
         `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`,

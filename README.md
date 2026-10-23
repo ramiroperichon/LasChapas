@@ -18,8 +18,8 @@ El nombre del lugar es el punto de partida: la **chapa acanalada** se convierte 
 - **Materiales como paleta**: carbón, marfil, arena, terracota y zinc (`src/styles/tokens.css`).
 - **Tipografía**: EB Garamond (serif clásica, con itálicas reales) para títulos y Jost (sans geométrica) para
   texto y etiquetas en mayúsculas espaciadas. Autoalojadas, con alternativas de sistema.
-- **Imágenes en blanco y negro**: el tratamiento se aplica al optimizar (`MONOCHROME` en
-  `scripts/build-images.mjs`), así que vale también para las fotos que se agreguen.
+- **Fotos en color** con la saturación apenas suavizada. Con `MONOCHROME = true` en
+  `scripts/build-images.mjs` todas pasan a blanco y negro.
 - **Recursos de plano**: reglas finas, fichas técnicas y un esquema de manzanas en la sección de ubicación.
 - **Nervaduras**: la franja separadora, el pie, el favicon y la cortina de las animaciones.
 
@@ -56,23 +56,30 @@ src/components/         Secciones: Header, Hero, Intro, RibBand, Gallery + Light
 src/styles/             Tokens, base, botones y lenguaje de movimiento
 ```
 
-## Reemplazar las imágenes provisionales
+## Fotos
 
-Las imágenes actuales (`images/source/provisional-*.svg`) son **ilustraciones creadas para este diseño**, no
-fotos de Las Chapas. En la página aparecen marcadas como "Ilustración provisional" y la galería lo aclara.
+Las fotos del lugar están en `images/source/` y su ubicación se define en `src/content/images.ts`:
 
-Para poner una foto real:
+- **Hero**: tríptico en escritorio (`fogon-atardecer` · `galeria-otono` · `galeria-noche`); en móvil, solo
+  `galeria-otono` a pantalla completa.
+- **El espacio**: `sendero-naranjo` y `entrada-noche`.
+- **Galería**: diez fotos, del día a la noche.
+- **Imagen para compartir** (`public/og.jpg`): `galeria-otono`.
+
+Las fotos actuales tienen 720 px de ancho. Si conseguís los originales del teléfono (más resolución), al
+reemplazarlos con el mismo nombre se ven más nítidas en pantallas grandes, sin tocar código.
+
+Para agregar o cambiar una foto:
 
 1. Copiá la foto original (lo más grande posible, jpg/png/webp) a `images/source/`, por ejemplo
    `images/source/fachada.jpg`.
-2. En `src/content/images.ts`, cambiá el `file` correspondiente por `'fachada'`, escribí un `alt` que describa
-   la foto y poné `provisional: false`. Opcional: `focus: '50% 70%'` para elegir el punto de recorte.
+2. En `src/content/images.ts`, cambiá el `file` correspondiente por `'fachada'` y escribí un `alt` que describa
+   la foto. Opcional: `focus: '50% 70%'` para elegir el punto de recorte.
 3. Corré `npm run images` (o `npm run build`, que lo incluye). Se generan las variantes y el manifiesto con las
    dimensiones, así que no hay saltos de diseño.
 
-La galería acepta cualquier cantidad de fotos: el patrón de composición se repite solo. Cuando ninguna imagen
-sea provisional, el aviso de la galería desaparece automáticamente. Podés borrar los `provisional-*.svg`
-que ya no uses.
+La galería acepta cualquier cantidad de fotos: el patrón de composición se repite solo. Si alguna vez usás una
+imagen que no es del lugar, marcala con `provisional: true`: la página la rotula como ilustrativa.
 
 ## Publicación en GitHub Pages
 
@@ -105,7 +112,8 @@ En `src/content/site.ts` (objeto `pending`) hay lugar para datos que solo se mue
 
 También falta:
 
-- Fotografías reales: fachada, habitaciones, baño, espacios comunes y alrededores.
+- Fotos de interiores (habitaciones, baño, cocina si la hay) y los originales en alta resolución.
+- Logo: la foto de la entrada (`entrada-noche`) se puede reemplazar cuando el cartel esté colocado.
 - Dominio definitivo.
 - Número de calle exacto (hoy se muestra "Avenida San Martín"), si se quiere publicar.
 - URL de inserción del mapa.

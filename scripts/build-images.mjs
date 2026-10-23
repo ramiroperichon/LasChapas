@@ -21,13 +21,19 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(root, 'images/source');
 const OUT = path.join(root, 'public/images');
 const MANIFEST = path.join(root, 'src/content/images.manifest.json');
-const WIDTHS = [640, 1024, 1600, 2400];
+const WIDTHS = [400, 640, 1024, 1600, 2400];
 const EXT = /\.(jpe?g|png|webp|avif|tiff?|svg)$/i;
 /**
  * Tratamiento en blanco y negro para todas las imágenes del sitio.
- * Poné `false` para publicar las fotos en color.
+ * `false` publica las fotos en color, con la saturación apenas suavizada
+ * para que convivan con la paleta del sitio.
  */
-const MONOCHROME = true;
+const MONOCHROME = false;
+const ENCODE = {
+  avif: { quality: 42, effort: 5 },
+  webp: { quality: 64, smartSubsample: true },
+  jpeg: { quality: 70, mozjpeg: true },
+};
 
 await mkdir(OUT, { recursive: true });
 
@@ -39,7 +45,7 @@ for (const file of files) {
   const name = file.replace(EXT, '');
   const input = path.join(SRC, file);
   const buffer = await readFile(input);
-  const hash = createHash('sha1').update(buffer).update(`bn:${MONOCHROME}`).digest('hex').slice(0, 12);
+  const hash = createHash('sha1').update(buffer).update(JSON.stringify({ MONOCHROME, ENCODE })).digest('hex').slice(0, 12);
   const isSvg = /\.svg$/i.test(file);
 
   // Dimensiones reales (para SVG, las declaradas en el archivo).
@@ -63,13 +69,14 @@ for (const file of files) {
       .resize({ width: widths.at(-1), withoutEnlargement: true });
     // Blanco y negro con un poco más de contraste, que conserva los grises medios.
     if (MONOCHROME) pipeline = pipeline.grayscale().linear(1.12, -14);
+    else pipeline = pipeline.modulate({ saturation: 0.9 });
     const master = await pipeline.toColourspace('srgb').png().toBuffer();
     for (const w of widths) {
       const base = sharp(master).resize({ width: w });
       await Promise.all([
-        base.clone().avif({ quality: 52, effort: 4 }).toFile(path.join(OUT, `${name}-${w}.avif`)),
-        base.clone().webp({ quality: 72 }).toFile(path.join(OUT, `${name}-${w}.webp`)),
-        base.clone().jpeg({ quality: 76, mozjpeg: true }).toFile(path.join(OUT, `${name}-${w}.jpg`)),
+        base.clone().avif(ENCODE.avif).toFile(path.join(OUT, `${name}-${w}.avif`)),
+        base.clone().webp(ENCODE.webp).toFile(path.join(OUT, `${name}-${w}.webp`)),
+        base.clone().jpeg(ENCODE.jpeg).toFile(path.join(OUT, `${name}-${w}.jpg`)),
       ]);
     }
     console.log(`✓ ${file} → ${widths.join(', ')} px`);

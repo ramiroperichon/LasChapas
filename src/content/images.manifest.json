@@ -1,112 +1,134 @@
 {
-  "provisional-espacio-chapa": {
-    "width": 1200,
-    "height": 900,
+  "entrada-noche": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1200
+      720
     ],
-    "color": "rgb(120 120 120)",
-    "hash": "84b95fa68cf3"
+    "color": "rgb(8 8 8)",
+    "hash": "64974a6a1f70"
   },
-  "provisional-espacio-ventana": {
-    "width": 1200,
-    "height": 1600,
+  "farol-fogon": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1200
+      720
     ],
-    "color": "rgb(216 216 216)",
-    "hash": "c769a305eaf2"
+    "color": "rgb(8 8 8)",
+    "hash": "28143649b2bf"
   },
-  "provisional-galeria-avenida": {
-    "width": 1800,
-    "height": 1100,
+  "fogon-atardecer": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1600,
-      1800
+      720
     ],
-    "color": "rgb(56 56 56)",
-    "hash": "8a6e8597faa2"
+    "color": "rgb(24 40 40)",
+    "hash": "fe1ca3daf7fa"
   },
-  "provisional-galeria-habitacion": {
-    "width": 1600,
-    "height": 1100,
+  "galeria-dia": {
+    "width": 888,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1600
+      888
     ],
-    "color": "rgb(216 216 216)",
-    "hash": "0ad50f28a737"
+    "color": "rgb(24 24 8)",
+    "hash": "83df51dd1ebd"
   },
-  "provisional-galeria-noche": {
-    "width": 1200,
-    "height": 1500,
+  "galeria-noche": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1200
+      720
     ],
-    "color": "rgb(40 40 40)",
-    "hash": "829dc3ae38fd"
+    "color": "rgb(8 8 8)",
+    "hash": "b6b7e70d18ad"
   },
-  "provisional-galeria-puerta": {
-    "width": 1000,
-    "height": 1400,
+  "galeria-otono": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1000
+      720
     ],
-    "color": "rgb(168 168 168)",
-    "hash": "ca16f5551180"
+    "color": "rgb(56 120 216)",
+    "hash": "7c0abd5f369a"
   },
-  "provisional-galeria-rincon": {
-    "width": 1000,
-    "height": 1300,
+  "naranja-noche": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1000
+      720
     ],
-    "color": "rgb(216 216 216)",
-    "hash": "3bcf454bc3d6"
+    "color": "rgb(8 8 8)",
+    "hash": "8fcef8de1bdb"
   },
-  "provisional-galeria-techo": {
-    "width": 1400,
-    "height": 1000,
+  "naranjo-noche": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1400
+      720
     ],
-    "color": "rgb(168 168 168)",
-    "hash": "86e0dd61b1b7"
+    "color": "rgb(8 8 8)",
+    "hash": "64ec3b922b5a"
   },
-  "provisional-galeria-textil": {
-    "width": 1400,
-    "height": 1000,
+  "parque-arboles": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1400
+      720
     ],
-    "color": "rgb(248 248 248)",
-    "hash": "0158e19f0dba"
+    "color": "rgb(8 8 8)",
+    "hash": "537f3a218927"
   },
-  "provisional-hero-fachada": {
-    "width": 2400,
-    "height": 1500,
+  "pileta": {
+    "width": 720,
+    "height": 1280,
     "widths": [
+      400,
       640,
-      1024,
-      1600,
-      2400
+      720
     ],
-    "color": "rgb(24 24 24)",
-    "hash": "f930f336947a"
+    "color": "rgb(8 8 8)",
+    "hash": "15f3b1ad6b9b"
+  },
+  "santa-rita": {
+    "width": 720,
+    "height": 1280,
+    "widths": [
+      400,
+      640,
+      720
+    ],
+    "color": "rgb(120 136 152)",
+    "hash": "8387c6c3dd9a"
+  },
+  "sendero-naranjo": {
+    "width": 720,
+    "height": 1280,
+    "widths": [
+      400,
+      640,
+      720
+    ],
+    "color": "rgb(8 8 8)",
+    "hash": "e2f8dc2efdc7"
   }
 }

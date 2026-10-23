@@ -6,10 +6,8 @@ import { SectionLabel } from './SectionLabel';
 import { Words } from './Words';
 import './Gallery.css';
 
-/** Proporciones de cada casillero; el patrón se repite si hay más fotos. */
-const SLOT_RATIOS = ['4 / 3', '4 / 5', '3 / 4', '16 / 10', '4 / 5', '3 / 2', '4 / 5', '16 / 11'];
-/** Tamaños aproximados (para sizes) según el casillero en escritorio. */
-const SLOT_SIZES = ['58vw', '40vw', '33vw', '66vw', '40vw', '58vw', '33vw', '50vw'];
+/** Proporciones de cada casillero (pensadas para fotos verticales); el patrón se repite. */
+const SLOT_RATIOS = ['4 / 5', '2 / 3', '3 / 4', '2 / 3', '4 / 5', '3 / 4'];
 
 export function Gallery() {
   const [open, setOpen] = useState<number | null>(null);
@@ -54,7 +52,7 @@ export function Gallery() {
                     <Picture
                       image={image}
                       ratio={SLOT_RATIOS[slot]}
-                      sizes={`(min-width: 900px) ${SLOT_SIZES[slot]}, ${slot % 3 === 0 ? '92vw' : '46vw'}`}
+                      sizes={`(min-width: 900px) 31vw, ${slot % 3 === 0 ? '92vw' : '46vw'}`}
                     />
                     {image.provisional && <ProvisionalTag />}
                     <span className="gallery__zoom" aria-hidden="true">
