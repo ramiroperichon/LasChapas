@@ -10,6 +10,8 @@ import './Intro.css';
 const facts = [
   { term: 'Dónde', value: `${site.address.street}, ${site.address.locality}, ${site.address.region}` },
   { term: 'Qué', value: site.category },
+  // Lo que muestran las fotos del lugar
+  { term: 'Espacios', value: 'Parque arbolado con naranjos, galería, pileta y fogón' },
   { term: 'Cómo', value: 'Consultas y coordinación directa con el propietario, por WhatsApp o teléfono' },
   pending.capacity && { term: 'Capacidad', value: pending.capacity },
   pending.checkInOut && { term: 'Horarios', value: pending.checkInOut },
@@ -35,8 +37,9 @@ export function Intro() {
               Las Chapas es un hospedaje temporario sobre la avenida San Martín, en {site.address.locality}, Corrientes.
             </p>
             <p data-reveal="up" style={{ '--d': 120 } as CSSProperties}>
-              Un lugar para quedarse unos días, con trato directo con quien te recibe: escribís, preguntás lo que
-              necesites y coordinás tu llegada sin intermediarios.
+              Un parque de árboles grandes y naranjos, una galería para sentarse a la sombra y, cuando cae el sol,
+              las luces del fogón. Escribís, preguntás lo que necesites y coordinás tu llegada directamente con
+              quien te recibe.
             </p>
 
             <dl className="facts">
@@ -63,20 +66,20 @@ export function Intro() {
               {tall.provisional && <ProvisionalTag />}
             </div>
             <figcaption className="label" data-reveal="sign" style={{ '--d': 500 } as CSSProperties}>
-              Fig. 01 — Luz de tarde
+              Fig. 01 — Bajo el naranjo
             </figcaption>
           </figure>
 
           <figure className="intro__figure intro__figure--small">
             <div className="shutter-frame shutter-frame--light" data-reveal="shutter" style={{ '--d': 250 } as CSSProperties}>
               <div className="shutter__media">
-                <Picture image={small} sizes="(min-width: 1024px) 24vw, 60vw" ratio="1 / 1" />
+                <Picture image={small} sizes="(min-width: 1024px) 24vw, 60vw" ratio="4 / 5" />
               </div>
               <div className="shutter" aria-hidden="true" />
               {small.provisional && <ProvisionalTag />}
             </div>
             <figcaption className="label" data-reveal="sign" style={{ '--d': 700 } as CSSProperties}>
-              Fig. 02 — Chapa
+              Fig. 02 — La entrada
             </figcaption>
           </figure>
         </div>

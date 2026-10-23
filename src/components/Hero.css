@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Hero: imagen a sangre en blanco y negro, telón que se abre, nombre
+   Hero: tríptico de fotos (una sola en móvil), telón que se abre, nombre
    monumental centrado y un marco fino que enmarca la escena.
    ========================================================================== */
 .hero {
@@ -35,17 +35,47 @@
   transition: transform 1.2s var(--ease-out);
 }
 
+.hero__panels {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr 1fr;
+  gap: 3px;
+}
+
+.hero__panel {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* El panel central (diurno) es más luminoso que los laterales: se equilibra */
+.hero__panel--main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(14 13 12 / 0.2);
+}
+
 .hero__picture {
   width: 100%;
   height: 100%;
   aspect-ratio: auto;
 }
 
+@media (max-width: 899px) {
+  .hero__panels {
+    grid-template-columns: 1fr;
+  }
+  .hero__panel--side {
+    display: none;
+  }
+}
+
 .hero__shade {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(120% 90% at 50% 45%, rgb(14 13 12 / 0.15) 0%, rgb(14 13 12 / 0.55) 70%, rgb(14 13 12 / 0.8) 100%),
+    radial-gradient(70% 55% at 50% 45%, rgb(14 13 12 / 0.42) 0%, rgb(14 13 12 / 0.3) 60%, rgb(14 13 12 / 0) 100%),
+    radial-gradient(120% 90% at 50% 45%, rgb(14 13 12 / 0.1) 0%, rgb(14 13 12 / 0.5) 70%, rgb(14 13 12 / 0.75) 100%),
     linear-gradient(180deg, rgb(14 13 12 / 0.5) 0%, rgb(14 13 12 / 0) 25%, rgb(14 13 12 / 0) 60%, rgb(14 13 12 / 0.75) 100%);
 }
 
@@ -84,6 +114,7 @@
 /* ---------- Contenido ---------- */
 .hero__content {
   position: relative;
+  text-shadow: 0 1px 28px rgb(14 13 12 / 0.45);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,6 +183,7 @@
 }
 
 .hero__actions {
+  text-shadow: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -299,8 +331,14 @@
   .js .hero[data-ready] .hero__curtain {
     animation: hide 0s linear 1.6s both;
   }
+  /* Cada panel se asienta desde un zoom; el central primero, después los laterales */
   .js .hero[data-ready] .hero__picture img {
     animation: hero-settle 3.2s var(--ease-out) both;
+    animation-delay: calc(var(--p, 0) * 0.12s);
+  }
+  .js .hero[data-ready] .hero__panel--side {
+    animation: panel-rise 1.9s var(--ease-shutter) both;
+    animation-delay: calc(0.1s + var(--p) * 0.1s);
   }
   .js .hero[data-ready] .hero__frame span:nth-child(odd) {
     animation: draw-x 1.4s var(--ease-in-out) 0.6s both;
@@ -354,6 +392,11 @@
 
 @keyframes hide {
   to { visibility: hidden; }
+}
+
+@keyframes panel-rise {
+  from { transform: translateY(7%); }
+  to { transform: none; }
 }
 
 @keyframes hero-settle {

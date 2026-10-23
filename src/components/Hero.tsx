@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { heroImage } from '../content/images';
+import { heroImage, heroSideImages, heroSizes } from '../content/images';
 import { site, whatsappUrl } from '../content/site';
 import { ButtonLink } from './Button';
 import { ArrowIcon, WhatsAppIcon } from './Icons';
@@ -26,12 +26,20 @@ export function Hero() {
     };
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return start();
 
-    const img = ref.current?.querySelector('img');
-    const loaded = new Promise<void>((resolve) => {
-      if (!img || img.complete) return resolve();
-      img.addEventListener('load', () => resolve(), { once: true });
-      img.addEventListener('error', () => resolve(), { once: true });
-    });
+    // Solo se esperan las imágenes visibles (en móvil, los paneles laterales no se muestran).
+    const imgs = [...(ref.current?.querySelectorAll('.hero__panel img') ?? [])].filter(
+      (img) => img.getClientRects().length > 0,
+    ) as HTMLImageElement[];
+    const loaded = Promise.all(
+      imgs.map(
+        (img) =>
+          new Promise<void>((resolve) => {
+            if (img.complete) return resolve();
+            img.addEventListener('load', () => resolve(), { once: true });
+            img.addEventListener('error', () => resolve(), { once: true });
+          }),
+      ),
+    );
     const minDelay = new Promise((r) => setTimeout(r, MIN_INTRO_MS));
     const maxWait = new Promise((r) => setTimeout(r, MAX_WAIT_MS));
     let cancelled = false;
@@ -67,8 +75,17 @@ export function Hero() {
     <section ref={ref} className="hero on-dark" id="inicio" aria-labelledby="hero-title" data-ready={ready || undefined}>
       <div className="hero__media">
         <div className="hero__parallax" data-parallax="-0.2">
-          <div className="hero__drift">
-            <Picture image={heroImage} sizes="100vw" priority className="hero__picture" />
+          {/* Tríptico en escritorio; en móvil solo la imagen principal */}
+          <div className="hero__drift hero__panels">
+            <div className="hero__panel hero__panel--side" style={{ '--p': 1 } as CSSProperties}>
+              <Picture image={heroSideImages[0]} sizes="34vw" className="hero__picture" />
+            </div>
+            <div className="hero__panel hero__panel--main" style={{ '--p': 0 } as CSSProperties}>
+              <Picture image={heroImage} sizes={heroSizes} priority className="hero__picture" />
+            </div>
+            <div className="hero__panel hero__panel--side" style={{ '--p': 2 } as CSSProperties}>
+              <Picture image={heroSideImages[1]} sizes="34vw" className="hero__picture" />
+            </div>
           </div>
         </div>
         <div className="hero__shade" aria-hidden="true" />
