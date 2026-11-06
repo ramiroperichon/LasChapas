@@ -6,6 +6,7 @@ import { Hero } from './components/Hero';
 import { Intro } from './components/Intro';
 import { Location } from './components/Location';
 import { RibBand } from './components/RibBand';
+import { Story } from './components/Story';
 import { useParallax, useReveal } from './hooks/useMotion';
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
       <main id="contenido">
         <Hero />
         <Intro />
+        <Story />
         <RibBand />
         <Gallery />
         <Contact />

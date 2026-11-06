@@ -1,5 +1,6 @@
-import { useRef, useState, type CSSProperties } from 'react';
+import { useRef, useState, type CSSProperties, type PointerEvent } from 'react';
 import { galleryImages } from '../content/images';
+import { ArrowIcon } from './Icons';
 import { Lightbox } from './Lightbox';
 import { Picture, ProvisionalTag } from './Picture';
 import { SectionLabel } from './SectionLabel';
@@ -8,6 +9,26 @@ import './Gallery.css';
 
 /** Proporciones de cada casillero (pensadas para fotos verticales); el patrón se repite. */
 const SLOT_RATIOS = ['4 / 5', '2 / 3', '3 / 4', '2 / 3', '4 / 5', '3 / 4'];
+
+/** Inclina la foto en 3D siguiendo al mouse (solo con mouse, no en pantallas táctiles). */
+function tilt(e: PointerEvent<HTMLButtonElement>) {
+  if (e.pointerType !== 'mouse') return;
+  const frame = e.currentTarget.querySelector<HTMLElement>('.gallery__frame');
+  if (!frame) return;
+  const r = frame.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width;
+  const y = (e.clientY - r.top) / r.height;
+  frame.style.setProperty('--ry', `${((x - 0.5) * 9).toFixed(2)}deg`);
+  frame.style.setProperty('--rx', `${((0.5 - y) * 7).toFixed(2)}deg`);
+  frame.style.setProperty('--gx', `${(x * 100).toFixed(1)}%`);
+  frame.style.setProperty('--gy', `${(y * 100).toFixed(1)}%`);
+}
+
+function untilt(e: PointerEvent<HTMLButtonElement>) {
+  const frame = e.currentTarget.querySelector<HTMLElement>('.gallery__frame');
+  frame?.style.removeProperty('--rx');
+  frame?.style.removeProperty('--ry');
+}
 
 export function Gallery() {
   const [open, setOpen] = useState<number | null>(null);
@@ -18,7 +39,7 @@ export function Gallery() {
   return (
     <section className="gallery section on-dark" id="galeria" aria-labelledby="galeria-titulo">
       <div className="wrap">
-        <SectionLabel num="03">Galería</SectionLabel>
+        <SectionLabel num="04">Galería</SectionLabel>
         <div className="gallery__head">
           <Words id="galeria-titulo" className="h2" parts={['Un recorrido', { em: 'antes de llegar.' }]} />
           <p className="gallery__note" data-reveal="up" style={{ '--d': 200 } as CSSProperties}>
@@ -46,6 +67,8 @@ export function Gallery() {
                   type="button"
                   className="gallery__trigger"
                   onClick={() => setOpen(i)}
+                  onPointerMove={tilt}
+                  onPointerLeave={untilt}
                   aria-label={`Ampliar imagen ${i + 1} de ${total}: ${image.caption ?? image.alt}`}
                 >
                   <span className="gallery__frame" data-reveal="scale" style={{ '--d': (i % 2) * 120 } as CSSProperties}>
@@ -68,6 +91,9 @@ export function Gallery() {
             );
           })}
         </ul>
+        <p className="gallery__swipe label" aria-hidden="true">
+          Deslizá para recorrer <ArrowIcon className="gallery__swipe-icon" />
+        </p>
       </div>
 
       <Lightbox

@@ -9,7 +9,7 @@ export function Location() {
   return (
     <section className="location section" id="ubicacion" aria-labelledby="ubicacion-titulo">
       <div className="wrap">
-        <SectionLabel num="05">Ubicación</SectionLabel>
+        <SectionLabel num="06">Ubicación</SectionLabel>
 
         <div className="location__grid">
           <div className="location__info">

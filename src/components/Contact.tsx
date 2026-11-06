@@ -35,7 +35,7 @@ export function Contact() {
   return (
     <section className="contact section" id="contacto" aria-labelledby="contacto-titulo">
       <div className="wrap">
-        <SectionLabel num="04">Consultas</SectionLabel>
+        <SectionLabel num="05">Consultas</SectionLabel>
 
         <div className="contact__grid">
           <div className="contact__intro">

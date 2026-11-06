@@ -7,6 +7,7 @@ import './Header.css';
 export const navItems = [
   { id: 'inicio', label: 'Inicio' },
   { id: 'espacio', label: 'El espacio' },
+  { id: 'recorrido', label: 'Recorrido' },
   { id: 'galeria', label: 'Galería' },
   { id: 'ubicacion', label: 'Ubicación' },
 ] as const;
