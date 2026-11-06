@@ -37,6 +37,13 @@ Cada tipo de elemento tiene su propia entrada (`src/styles/motion.css`):
 | subir     | Párrafos y bloques             | desplazamiento corto + opacidad                         |
 | escala    | Galería                        | la foto se asienta desde un leve zoom dentro de su marco|
 | plano     | Esquema de ubicación           | las manzanas se trazan y cae el marcador                |
+| puertas   | Salida del hero al bajar       | los paneles laterales giran en 3D como puertas que se abren; el central se acerca |
+| mazo      | "Un día en Las Chapas"         | mazo de fotos 3D fijo: cada momento levanta la foto de arriba y trae la siguiente |
+| coverflow | Galería en celular             | carrusel deslizable; las fotos de los costados giran hacia el centro (CSS ligado al scroll) |
+| inclinar  | Galería en escritorio          | la foto se inclina en 3D y refleja la luz siguiendo al mouse |
+
+El 3D es solo CSS (`perspective`, `rotate`, `translateZ`): no hay WebGL ni librerías, así que no suma peso de
+descarga. Los textos del recorrido están en `src/content/story.ts`.
 
 Además: parallax moderado (solo escritorio), cabecera que se vuelve sólida y se esconde al bajar, barra de
 progreso de lectura (CSS nativo, sin JS) y botones con relleno tipo cortina. Todo respeta

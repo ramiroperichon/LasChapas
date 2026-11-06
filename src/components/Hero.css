@@ -5,6 +5,7 @@
 .hero {
   --mx: 0;
   --my: 0;
+  --hp: 0;
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
@@ -39,6 +40,29 @@
   display: grid;
   grid-template-columns: 1fr 1.08fr 1fr;
   gap: 3px;
+  perspective: 1400px;
+}
+
+/* Salida al bajar (--hp: 0 → 1). Se usan las propiedades rotate/scale/translate
+   para no pisar las animaciones de entrada, que usan transform. */
+.hero__panel--side:first-child {
+  transform-origin: left center;
+  rotate: y calc(var(--hp) * 60deg);
+}
+
+.hero__panel--side:last-child {
+  transform-origin: right center;
+  rotate: y calc(var(--hp) * -60deg);
+}
+
+.hero__panel--main {
+  scale: calc(1 + var(--hp) * 0.1);
+}
+
+.hero__content,
+.hero__bottom {
+  opacity: calc(1 - var(--hp) * 1.7);
+  translate: 0 calc(var(--hp) * -9vh);
 }
 
 .hero__panel {
@@ -315,7 +339,7 @@
   }
 
   /* Estado previo: todo oculto hasta que la imagen esté lista */
-  .js .hero:not([data-ready]) :is(.hero__frame span, .hero__eyebrow, .hero__char, .hero__rule, .hero__tagline, .hero__actions, .hero__bottom) {
+  .js .hero:not([data-ready]) :is(.hero__frame span, .hero__eyebrow, .hero__char, .hero__rule, .hero__tagline, .hero__actions, .hero__bottom > *) {
     opacity: 0;
   }
 
@@ -363,7 +387,7 @@
   .js .hero[data-ready] .hero__actions {
     animation: rise 1.3s var(--ease-out) 1.8s both;
   }
-  .js .hero[data-ready] .hero__bottom {
+  .js .hero[data-ready] .hero__bottom > * {
     animation: fade 1.2s var(--ease-out) 2s both;
   }
   /* El indicador recorre la guía tres veces y queda quieto */

@@ -62,6 +62,20 @@
   position: relative;
   display: block;
   overflow: hidden;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.6s var(--ease-out);
+}
+
+/* Reflejo de luz que sigue al puntero (escritorio) */
+.gallery__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgb(255 248 235 / 0.22), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
 }
 
 .gallery__frame .picture img {
@@ -105,6 +119,9 @@
   .gallery__trigger:hover .gallery__zoom {
     transform: scale(1);
   }
+  .gallery__trigger:hover .gallery__frame::after {
+    opacity: 1;
+  }
   .gallery__trigger:hover .gallery__caption {
     color: var(--on-dark);
   }
@@ -119,28 +136,93 @@
   outline-offset: 4px;
 }
 
+/* ---------- Móvil: carrusel deslizable con efecto 3D tipo coverflow ---------- */
+.gallery__swipe {
+  display: none;
+}
+
 @media (max-width: 899px) {
   .gallery__head .h2,
   .gallery__note {
     grid-column: 1 / -1;
   }
   .gallery__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    margin: clamp(2.5rem, 8vw, 3.5rem) calc(-1 * var(--gutter)) 0;
+    padding: 1.5rem 17vw 1rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .gallery__grid::-webkit-scrollbar {
+    display: none;
   }
   .gallery__grid > li,
   .gallery__grid > li:nth-child(n) {
-    grid-column: auto;
+    flex: 0 0 66vw;
     margin-top: 0;
+    scroll-snap-align: center;
   }
-  /* una a ancho completo y dos a media columna, con un leve desfase */
-  .gallery__grid > li:nth-child(3n + 1) {
-    grid-column: 1 / -1;
+  .gallery__grid .picture {
+    aspect-ratio: 4 / 5;
   }
-  .gallery__grid > li:nth-child(3n) {
-    margin-top: 2.5rem;
+  /* En el carrusel las fotos se ven al deslizar: sin revelado por máscara */
+  .js .gallery__grid [data-reveal='scale'] {
+    clip-path: none;
+  }
+  .js .gallery__grid [data-reveal='scale'] img {
+    transform: none;
   }
   .gallery__zoom {
     display: none;
+  }
+  .gallery__swipe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    color: var(--on-dark-muted);
+  }
+}
+
+/* La foto centrada queda de frente; las de los costados giran hacia el centro.
+   Usa animaciones ligadas al scroll del carrusel (sin JS); donde el navegador
+   no las soporta, el carrusel funciona plano. */
+@media (max-width: 899px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .gallery__grid > li {
+      animation: coverflow linear both;
+      animation-timeline: view(inline);
+    }
+  }
+}
+
+@keyframes coverflow {
+  0% {
+    transform: perspective(800px) rotateY(-32deg) scale(0.92);
+    opacity: 0.6;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(800px) rotateY(32deg) scale(0.92);
+    opacity: 0.6;
+  }
+}
+
+.gallery__swipe-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__frame {
+    transform: none;
   }
 }

@@ -70,6 +70,31 @@ export function Hero() {
     };
   }, []);
 
+  // Al bajar, --hp va de 0 a 1 mientras el hero sale de pantalla: los paneles
+  // laterales giran como puertas que se abren y el contenido se despide.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let frame = 0;
+    let last = -1;
+    const update = () => {
+      frame = 0;
+      const p = Math.min(Math.max(window.scrollY / el.offsetHeight, 0), 1);
+      if (Math.abs(p - last) < 0.002) return;
+      last = p;
+      el.style.setProperty('--hp', p.toFixed(3));
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   let letter = 0;
   return (
     <section ref={ref} className="hero on-dark" id="inicio" aria-labelledby="hero-title" data-ready={ready || undefined}>
