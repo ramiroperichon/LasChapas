@@ -1,7 +1,7 @@
 .rib-band {
   position: relative;
   height: clamp(5rem, 10vw, 9rem);
-  background: var(--carbon);
+  background: #8a4526;
   overflow: hidden;
 }
 
@@ -13,7 +13,19 @@
 
 .rib-band__ribs span {
   flex: 1;
-  background: linear-gradient(90deg, #2b2825 0%, #4a4540 40%, #6b655e 52%, #2b2825 100%);
+  background: linear-gradient(90deg, #6d6b67 0%, #a9a7a1 40%, #d6d3cc 52%, #6d6b67 100%);
+  transform-origin: bottom;
+}
+
+/* Paño pintado, como la chapa de la entrada (amarillo y naranja sobre zinc) */
+.rib-band__paint {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 36%;
+  width: 28%;
+  background: linear-gradient(90deg, #e8b23a 0%, #f0c04a 45%, #e48a2f 70%, #d0682b 100%);
+  mix-blend-mode: multiply;
   transform-origin: bottom;
 }
 
@@ -35,6 +47,10 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .js .rib-band[data-reveal] .rib-band__paint {
+    transform: scaleY(0);
+    transition: transform 1.2s var(--ease-out) 0.35s;
+  }
   .js .rib-band[data-reveal] .rib-band__ribs span {
     transform: scaleY(0);
     transition: transform 0.9s var(--ease-out);
@@ -48,6 +64,7 @@
       transform 0.8s var(--ease-out) 0.6s;
   }
   .js .rib-band[data-visible] .rib-band__ribs span,
+  .js .rib-band[data-visible] .rib-band__paint,
   .js .rib-band[data-visible] .rib-band__plate {
     transform: none;
     opacity: 1;

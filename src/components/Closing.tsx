@@ -1,16 +1,21 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { site, telUrl, whatsappUrl, fullAddress } from '../content/site';
 import { ButtonLink } from './Button';
-import { Mark, WhatsAppIcon } from './Icons';
+import { WhatsAppIcon } from './Icons';
+import { Seal } from './Logo';
+import { StringLights } from './StringLights';
 import { Words } from './Words';
 import './Closing.css';
 
 export function Closing() {
   const year = new Date().getFullYear();
   return (
-    <footer className="closing on-dark" id="pie">
-      <div className="closing__ribs" aria-hidden="true" />
+    <footer className="closing on-dark" data-tone="night" id="pie">
+      <StringLights className="closing__lights" swags={3} bulbs={9} />
       <div className="wrap closing__inner">
+        <div className="closing__seal" data-reveal="seal">
+          <Seal title={`${site.name}, ${site.tagline}`} />
+        </div>
         <div className="closing__cta">
           <p className="label closing__kicker" data-reveal="sign">
             {site.name} — {site.address.locality}
@@ -28,9 +33,10 @@ export function Closing() {
 
         <div className="closing__cols">
           <div className="closing__brand">
-            <Mark className="closing__mark" />
             <p className="closing__name">{site.name}</p>
-            <p className="closing__cat">{site.category}</p>
+            <p className="closing__cat">
+              {site.tagline} · {site.category}
+            </p>
           </div>
           <div>
             <h2 className="label closing__h">Dirección</h2>

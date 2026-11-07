@@ -27,6 +27,22 @@
   transform: none;
 }
 
+/* Sobre las secciones de noche, la cabecera se vuelve azul noche */
+.site-header::before {
+  transition:
+    transform 0.6s var(--ease-shutter),
+    background-color 0.5s ease;
+}
+
+.site-header[data-night] {
+  color: var(--marfil);
+}
+
+.site-header[data-night]::before {
+  background: rgb(27 29 41 / 0.96);
+  border-bottom-color: var(--line-dark);
+}
+
 .site-header[data-hidden] {
   transform: translateY(-100%);
 }
@@ -42,24 +58,8 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
   text-decoration: none;
   margin-right: auto;
-}
-
-.brand__mark {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: var(--terracota);
-}
-
-.brand__name {
-  font-family: var(--f-display);
-  font-size: 1.125rem;
-  font-weight: 500;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  line-height: 1;
 }
 
 /* Navegación de escritorio */

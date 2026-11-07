@@ -1,5 +1,5 @@
 .location {
-  background: var(--marfil);
+  background: linear-gradient(180deg, var(--carbon) 0%, var(--noche-profunda) 100%);
 }
 
 .location__grid {

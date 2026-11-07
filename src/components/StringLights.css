@@ -1,0 +1,79 @@
+.lights {
+  position: relative;
+  height: clamp(4.5rem, 9vw, 8.5rem);
+  pointer-events: none;
+}
+
+.lights__wire {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.lights__wire path {
+  fill: none;
+  stroke: rgb(248 241 228 / 0.35);
+  stroke-width: 1;
+}
+
+.lights__bulb {
+  position: absolute;
+  width: clamp(7px, 0.8vw, 11px);
+  height: clamp(9px, 1vw, 14px);
+  border-radius: 50% 50% 48% 48% / 40% 40% 60% 60%;
+  translate: -50% -15%;
+  background: var(--luz);
+  box-shadow:
+    0 0 6px 2px rgb(255 210 127 / 0.75),
+    0 0 26px 8px rgb(255 170 80 / 0.28);
+}
+
+/* Portalámparas */
+.lights__bulb::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -35%;
+  width: 55%;
+  height: 40%;
+  translate: -50% 0;
+  background: #3a3a44;
+  border-radius: 1px;
+}
+
+/* Apagadas hasta que la guirnalda entra en pantalla; se prenden de a una */
+@media (prefers-reduced-motion: no-preference) {
+  .js .lights[data-reveal] .lights__bulb {
+    background: #5b5751;
+    box-shadow: none;
+  }
+  .js .lights[data-visible] .lights__bulb {
+    animation: bulb-on 0.9s ease both;
+    animation-delay: calc(0.3s + var(--i) * 80ms);
+  }
+}
+
+@keyframes bulb-on {
+  0% {
+    background: #5b5751;
+    box-shadow: none;
+  }
+  30% {
+    background: var(--luz);
+    box-shadow:
+      0 0 6px 2px rgb(255 210 127 / 0.75),
+      0 0 26px 8px rgb(255 170 80 / 0.28);
+  }
+  45% {
+    background: #8a7a5c;
+    box-shadow: 0 0 3px 1px rgb(255 210 127 / 0.3);
+  }
+  100% {
+    background: var(--luz);
+    box-shadow:
+      0 0 6px 2px rgb(255 210 127 / 0.75),
+      0 0 26px 8px rgb(255 170 80 / 0.28);
+  }
+}

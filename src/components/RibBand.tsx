@@ -16,6 +16,7 @@ export function RibBand() {
           <span key={i} style={{ '--i': i } as CSSProperties} />
         ))}
       </div>
+      <span className="rib-band__paint" />
       <p className="rib-band__plate label">
         {site.address.locality} <span>·</span> {site.address.region} <span>·</span> {site.address.country}
       </p>

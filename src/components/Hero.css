@@ -76,7 +76,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgb(14 13 12 / 0.2);
+  background: rgb(15 16 26 / 0.2);
 }
 
 .hero__picture {
@@ -98,9 +98,9 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(70% 55% at 50% 45%, rgb(14 13 12 / 0.42) 0%, rgb(14 13 12 / 0.3) 60%, rgb(14 13 12 / 0) 100%),
-    radial-gradient(120% 90% at 50% 45%, rgb(14 13 12 / 0.1) 0%, rgb(14 13 12 / 0.5) 70%, rgb(14 13 12 / 0.75) 100%),
-    linear-gradient(180deg, rgb(14 13 12 / 0.5) 0%, rgb(14 13 12 / 0) 25%, rgb(14 13 12 / 0) 60%, rgb(14 13 12 / 0.75) 100%);
+    radial-gradient(70% 55% at 50% 45%, rgb(15 16 26 / 0.42) 0%, rgb(15 16 26 / 0.3) 60%, rgb(15 16 26 / 0) 100%),
+    radial-gradient(120% 90% at 50% 45%, rgb(15 16 26 / 0.1) 0%, rgb(15 16 26 / 0.5) 70%, rgb(15 16 26 / 0.75) 100%),
+    linear-gradient(180deg, rgb(15 16 26 / 0.5) 0%, rgb(15 16 26 / 0) 25%, rgb(15 16 26 / 0) 60%, rgb(15 16 26 / 0.75) 100%);
 }
 
 /* ---------- Marco ---------- */
@@ -138,7 +138,7 @@
 /* ---------- Contenido ---------- */
 .hero__content {
   position: relative;
-  text-shadow: 0 1px 28px rgb(14 13 12 / 0.45);
+  text-shadow: 0 1px 28px rgb(15 16 26 / 0.45);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,15 +161,57 @@
   letter-spacing: 0.32em;
 }
 
+.hero__seal {
+  --seal: min(56vh, 80vw, 34rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: var(--seal);
+  aspect-ratio: 1;
+  container-type: inline-size;
+}
+
+.hero__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  rotate: -90deg;
+}
+
+.hero__ring circle {
+  fill: rgb(15 16 26 / 0.18);
+  stroke: rgb(248 241 228 / 0.9);
+  stroke-width: 0.45;
+}
+
+.hero__ring .hero__ring-inner {
+  fill: none;
+  stroke-opacity: 0.55;
+}
+
 .hero__wordmark {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  column-gap: 0.24em;
-  font-size: var(--fs-display);
+  column-gap: 0.22em;
+  margin-top: 4cqi;
+  font-size: 16.5cqi;
   font-weight: 400;
-  line-height: 0.86;
+  line-height: 1;
   letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+
+.hero__seal-sub {
+  font-family: var(--f-text);
+  font-size: max(0.6rem, 2.5cqi);
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgb(248 241 228 / 0.88);
 }
 
 .hero__word {
@@ -187,10 +229,14 @@
 
 .hero__rule {
   display: block;
-  width: clamp(3rem, 8vw, 6rem);
+  width: 14cqi;
   height: 1px;
-  margin: clamp(1.25rem, 3vw, 2.25rem) 0;
-  background: rgb(243 237 227 / 0.6);
+  margin: 3cqi 0 3.5cqi;
+  background: rgb(248 241 228 / 0.6);
+}
+
+.hero__tagline {
+  margin-top: clamp(1.25rem, 3vh, 2rem);
 }
 
 .hero__tagline {
@@ -290,11 +336,8 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
-  .hero__wordmark {
-    flex-direction: column;
-    align-items: center;
-    font-size: clamp(4rem, 21vw, 7rem);
-    line-height: 0.88;
+  .hero__seal {
+    --seal: min(82vw, 44svh);
   }
   .hero__eyebrow {
     display: grid;
@@ -339,8 +382,25 @@
   }
 
   /* Estado previo: todo oculto hasta que la imagen esté lista */
-  .js .hero:not([data-ready]) :is(.hero__frame span, .hero__eyebrow, .hero__char, .hero__rule, .hero__tagline, .hero__actions, .hero__bottom > *) {
+  .js .hero:not([data-ready]) :is(.hero__frame span, .hero__eyebrow, .hero__char, .hero__rule, .hero__seal-sub, .hero__tagline, .hero__actions, .hero__bottom > *) {
     opacity: 0;
+  }
+  .js .hero__ring circle {
+    stroke-dasharray: 1.02;
+    stroke-dashoffset: 1.02;
+  }
+  .js .hero:not([data-ready]) .hero__ring circle {
+    fill-opacity: 0;
+  }
+  /* El círculo del sello se traza mientras se abre el telón */
+  .js .hero[data-ready] .hero__ring circle {
+    animation: ring-draw 2.2s var(--ease-in-out) 0.45s both;
+  }
+  .js .hero[data-ready] .hero__ring .hero__ring-inner {
+    animation-delay: 0.7s;
+  }
+  .js .hero[data-ready] .hero__seal-sub {
+    animation: track-in 1.6s var(--ease-out) 1.55s both;
   }
 
   .js .hero[data-ready] .hero__curtain-panel--top {
@@ -394,6 +454,11 @@
   .js .hero[data-ready] .hero__scroll-track span {
     animation: track 2.4s var(--ease-in-out) 2.6s 3 both;
   }
+}
+
+@keyframes ring-draw {
+  from { stroke-dashoffset: 1.02; fill-opacity: 0; }
+  to { stroke-dashoffset: 0; fill-opacity: 1; }
 }
 
 @keyframes curtain-line {

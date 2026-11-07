@@ -51,19 +51,3 @@ export const PinIcon = ({ className }: IconProps) => (
     <circle cx="12" cy="9.8" r="2.3" />
   </svg>
 );
-
-/** Isotipo: perfil de casa con nervaduras de chapa. */
-export const Mark = ({ className }: IconProps) => (
-  <svg aria-hidden focusable={false} viewBox="0 0 32 32" className={className}>
-    <defs>
-      <clipPath id="mark-roof">
-        <path d="M3 13 16 4l13 9v15H3Z" />
-      </clipPath>
-    </defs>
-    <g clipPath="url(#mark-roof)" fill="currentColor">
-      {[3, 8.2, 13.4, 18.6, 23.8].map((x) => (
-        <rect key={x} x={x} y="0" width="2.6" height="32" />
-      ))}
-    </g>
-  </svg>
-);

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { site, whatsappUrl } from '../content/site';
 import { ButtonInner } from './Button';
-import { CloseIcon, Mark, WhatsAppIcon } from './Icons';
+import { CloseIcon, WhatsAppIcon } from './Icons';
+import { Lockup } from './Logo';
 import './Header.css';
 
 export const navItems = [
@@ -14,6 +15,7 @@ export const navItems = [
 
 export function Header() {
   const [solid, setSolid] = useState(false);
+  const [night, setNight] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [active, setActive] = useState<string>('inicio');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,8 +33,16 @@ export function Header() {
         frame = 0;
         const y = window.scrollY;
         const heroEnd = window.innerHeight * 0.85;
-        setSolid(y > heroEnd - 80);
         const header = document.querySelector('.site-header');
+        setSolid(y > heroEnd - 80);
+        // ¿La cabecera está sobre una sección de noche? Entonces cambia de tono.
+        const edge = (header as HTMLElement | null)?.offsetHeight ?? 72;
+        setNight(
+          [...document.querySelectorAll('[data-tone="night"]')].some((s) => {
+            const r = s.getBoundingClientRect();
+            return r.top <= edge && r.bottom > edge;
+          }),
+        );
         const focusInside = header?.contains(document.activeElement);
         setHidden(y > heroEnd && y > lastY + 4 && !focusInside);
         if (y < lastY - 4 || y <= heroEnd) setHidden(false);
@@ -77,11 +87,10 @@ export function Header() {
   };
 
   return (
-    <header className="site-header" data-solid={solid || undefined} data-hidden={(hidden && !menuOpen) || undefined}>
+    <header className="site-header" data-solid={solid || undefined} data-night={(solid && night) || undefined} data-hidden={(hidden && !menuOpen) || undefined}>
       <div className="site-header__bar wrap">
         <a className="brand" href="#inicio" aria-label={`${site.name}, ir al inicio`}>
-          <Mark className="brand__mark" />
-          <span className="brand__name">{site.name}</span>
+          <Lockup />
         </a>
 
         <nav className="site-nav" aria-label="Principal">
@@ -135,8 +144,7 @@ export function Header() {
       >
         <div className="mobile-menu__top wrap">
           <span className="brand">
-            <Mark className="brand__mark" />
-            <span className="brand__name">{site.name}</span>
+            <Lockup />
           </span>
           <button type="button" className="mobile-menu__close" onClick={closeMenu}>
             <CloseIcon />

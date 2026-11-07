@@ -83,7 +83,8 @@
 }
 
 .btn--accent {
-  --btn-bg: var(--terracota-ink);
+  /* naranja fijo (no cambia en las secciones de noche): AA con texto crema */
+  --btn-bg: #a8481a;
   --btn-fill: var(--carbon);
 }
 
@@ -155,4 +156,24 @@
   .link::after {
     transition: none;
   }
+}
+
+/* Sobre fondos de noche, el botón principal se ilumina (crema) */
+.on-dark .btn:not([class*='btn--']) {
+  --btn-bg: var(--marfil);
+  --btn-fg: var(--carbon);
+  --btn-fill: var(--terracota-ink);
+  --btn-fill-fg: var(--carbon);
+}
+
+.on-dark .btn--ghost {
+  --btn-fill: var(--marfil);
+  --btn-fill-fg: var(--carbon);
+}
+
+.on-light .btn:not([class*='btn--']) {
+  --btn-bg: var(--carbon);
+  --btn-fg: var(--marfil);
+  --btn-fill: #9c4416;
+  --btn-fill-fg: var(--marfil);
 }

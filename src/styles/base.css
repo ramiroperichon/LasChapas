@@ -193,6 +193,24 @@ button {
   color: var(--on-dark);
 }
 
+/* Las secciones de noche invierten los colores de texto: los componentes
+   usan --ink, --ink-muted, --line y --terracota-ink y se adaptan solos. */
+.on-dark {
+  --ink: var(--marfil);
+  --ink-muted: var(--on-dark-muted);
+  --line: var(--line-dark);
+  --terracota-ink: var(--terracota-light);
+}
+
+/* Elementos claros dentro de una sección de noche (formulario, plano) */
+.on-light {
+  --ink: #231f1a;
+  --ink-muted: #5d554c;
+  --line: rgb(35 31 26 / 0.18);
+  --terracota-ink: #9c4416;
+  color: var(--ink);
+}
+
 .section-label > span:first-child {
   display: inline-block;
 }
