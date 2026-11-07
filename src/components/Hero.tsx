@@ -140,21 +140,30 @@ export function Hero() {
               {site.address.locality}, {site.address.region}
             </span>
           </span>
-          <span className="sr-only">{site.name}</span>
-          <span className="hero__wordmark display" aria-hidden="true">
-            {WORDS.map((word) => (
-              <span className="hero__word" key={word}>
-                {[...word].map((ch) => (
-                  <span className="hero__char" key={letter} style={{ '--i': letter++ } as CSSProperties}>
-                    {ch}
-                  </span>
-                ))}
-              </span>
-            ))}
+          <span className="sr-only">
+            {site.name}, {site.tagline.toLowerCase()}
+          </span>
+          {/* Sello como el logo: el círculo se dibuja y el nombre aparece adentro */}
+          <span className="hero__seal" aria-hidden="true">
+            <svg className="hero__ring" viewBox="0 0 200 200" focusable={false}>
+              <circle cx="100" cy="100" r="99" pathLength="1" />
+              <circle className="hero__ring-inner" cx="100" cy="100" r="93" pathLength="1" />
+            </svg>
+            <span className="hero__wordmark display">
+              {WORDS.map((word) => (
+                <span className="hero__word" key={word}>
+                  {[...word].map((ch) => (
+                    <span className="hero__char" key={letter} style={{ '--i': letter++ } as CSSProperties}>
+                      {ch}
+                    </span>
+                  ))}
+                </span>
+              ))}
+            </span>
+            <span className="hero__rule" />
+            <span className="hero__seal-sub">{site.tagline}</span>
           </span>
         </h1>
-
-        <span className="hero__rule" aria-hidden="true" />
 
         <p className="hero__tagline">
           Una pausa, <em>bajo techo.</em>

@@ -1,5 +1,5 @@
 .contact {
-  background: var(--arena);
+  background: var(--carbon);
 }
 
 .contact .section-label {
@@ -27,7 +27,7 @@
 
 .contact__intro .lead {
   max-width: 32rem;
-  color: #4a443e;
+  color: var(--ink-muted);
 }
 
 .contact__direct {
@@ -135,7 +135,7 @@
   width: 100%;
   min-height: 3rem;
   padding: 0.7rem 0.85rem;
-  border: 1px solid rgb(29 27 25 / 0.35);
+  border: 1px solid rgb(27 29 41 / 0.35);
   border-radius: 0;
   background: #fbf8f3;
   font-size: 1rem; /* evita el zoom automático en iOS */

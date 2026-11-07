@@ -7,7 +7,7 @@ import './Location.css';
 
 export function Location() {
   return (
-    <section className="location section" id="ubicacion" aria-labelledby="ubicacion-titulo">
+    <section className="location section on-dark" data-tone="night" id="ubicacion" aria-labelledby="ubicacion-titulo">
       <div className="wrap">
         <SectionLabel num="06">Ubicación</SectionLabel>
 
@@ -69,7 +69,7 @@ function PlanSketch() {
   for (let c = 0; c < 6; c++) for (let r = 0; r < 5; r++) if (r !== 2) blocks.push([c, r]);
   return (
     <a
-      className="plan"
+      className="plan on-light"
       href={site.mapsUrl}
       target="_blank"
       rel="noopener noreferrer"

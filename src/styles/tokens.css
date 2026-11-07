@@ -6,25 +6,30 @@
    arena, terracota y zinc.
    ========================================================================== */
 :root {
-  /* Materiales */
-  --carbon: #1d1b19;
-  --carbon-2: #272421;
-  --carbon-3: #35312d;
-  --marfil: #f3ede3;
-  --marfil-2: #ebe3d5;
-  --arena: #ddcdb4;
-  --arena-2: #cbb796;
-  --terracota: #b8654a;
-  --terracota-ink: #94452d; /* versión con contraste AA sobre marfil y arena */
-  --terracota-light: #e0957a; /* versión con contraste AA sobre carbón */
-  --zinc: #8d8780;
+  /* Paleta "del día a la noche", tomada del lugar: la chapa de la entrada
+     (zinc, amarillo y naranja), los naranjos, el parque y el cielo de noche. */
+  --carbon: #1b1d29; /* azul noche: fondos oscuros y botones */
+  --carbon-2: #23263a;
+  --carbon-3: #2f3249;
+  --noche-profunda: #12131d;
+  --marfil: #f8f1e4; /* crema de la mañana */
+  --marfil-2: #f2e5cf; /* luz de la tarde */
+  --arena: #ead6b5;
+  --arena-2: #d9bd8f;
+  --sol: #e8b23a; /* amarillo de la chapa */
+  --terracota: #d0682b; /* naranja de la chapa y los naranjos */
+  --terracota-ink: #9c4416; /* naranja con contraste AA sobre crema */
+  --terracota-light: #f2a66a; /* naranja con contraste AA sobre azul noche */
+  --verde: #4d6a42;
+  --zinc: #9a9893;
+  --luz: #ffd27f; /* luz cálida de las guirnaldas */
 
-  --ink: var(--carbon);
-  --ink-muted: #5b544d;
+  --ink: #231f1a;
+  --ink-muted: #5d554c;
   --on-dark: var(--marfil);
-  --on-dark-muted: #b9b0a3;
-  --line: rgb(29 27 25 / 0.18);
-  --line-dark: rgb(243 237 227 / 0.16);
+  --on-dark-muted: #c3bcb2;
+  --line: rgb(35 31 26 / 0.18);
+  --line-dark: rgb(248 241 228 / 0.16);
 
   /* Tipografía */
   --f-display: 'EB Garamond Variable', 'EB Garamond', Garamond, 'Iowan Old Style', 'Times New Roman', serif;
@@ -55,6 +60,6 @@
 
   /* Chapa: nervadura para fondos */
   --rib-w: 14px;
-  --ribs-dark: repeating-linear-gradient(90deg, #2c2926 0, #3b3733 calc(var(--rib-w) * 0.45), #24211f var(--rib-w));
+  --ribs-dark: repeating-linear-gradient(90deg, #22253a 0, #34374f calc(var(--rib-w) * 0.45), #1b1d29 var(--rib-w));
   --ribs-zinc: repeating-linear-gradient(90deg, #6f6a64 0, #b4ada3 calc(var(--rib-w) * 0.45), #5d5954 var(--rib-w));
 }

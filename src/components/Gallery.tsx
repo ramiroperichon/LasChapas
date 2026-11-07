@@ -2,6 +2,7 @@ import { useRef, useState, type CSSProperties, type PointerEvent } from 'react';
 import { galleryImages } from '../content/images';
 import { ArrowIcon } from './Icons';
 import { Lightbox } from './Lightbox';
+import { StringLights } from './StringLights';
 import { Picture, ProvisionalTag } from './Picture';
 import { SectionLabel } from './SectionLabel';
 import { Words } from './Words';
@@ -37,7 +38,8 @@ export function Gallery() {
   const anyProvisional = galleryImages.some((img) => img.provisional);
 
   return (
-    <section className="gallery section on-dark" id="galeria" aria-labelledby="galeria-titulo">
+    <section className="gallery section on-dark" data-tone="night" id="galeria" aria-labelledby="galeria-titulo">
+      <StringLights className="gallery__lights" swags={4} bulbs={6} />
       <div className="wrap">
         <SectionLabel num="04">Galería</SectionLabel>
         <div className="gallery__head">

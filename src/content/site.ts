@@ -6,6 +6,8 @@
 export const site = {
   name: 'Las Chapas',
   category: 'Hospedaje temporario',
+  /** Bajada del logo. */
+  tagline: 'Suite de huéspedes',
   address: {
     street: 'Avenida San Martín',
     locality: 'Mariano I. Loza',

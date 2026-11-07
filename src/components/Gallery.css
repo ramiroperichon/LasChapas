@@ -1,3 +1,19 @@
+.gallery {
+  /* Atardecer: del naranja de la chapa al azul de la noche */
+  background: linear-gradient(
+    180deg,
+    #8a4526 0%,
+    #5c3233 14%,
+    #33293a 30%,
+    var(--carbon) 55%
+  );
+  padding-top: 0;
+}
+
+.gallery__lights {
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
 .gallery__head {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));

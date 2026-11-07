@@ -33,7 +33,7 @@ export function Contact() {
   };
 
   return (
-    <section className="contact section" id="contacto" aria-labelledby="contacto-titulo">
+    <section className="contact section on-dark" data-tone="night" id="contacto" aria-labelledby="contacto-titulo">
       <div className="wrap">
         <SectionLabel num="05">Consultas</SectionLabel>
 
@@ -60,7 +60,7 @@ export function Contact() {
             </div>
           </div>
 
-          <form className="inquiry" onSubmit={submit} data-reveal="up" style={{ '--d': 200 } as CSSProperties}>
+          <form className="inquiry on-light" onSubmit={submit} data-reveal="up" style={{ '--d': 200 } as CSSProperties}>
             <div className="inquiry__head">
               <h3 className="inquiry__title">Armá tu consulta</h3>
               <p className="label">Se envía por WhatsApp</p>

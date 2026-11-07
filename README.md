@@ -15,7 +15,16 @@ npm run preview   # sirve dist/ para revisar el build
 
 El nombre del lugar es el punto de partida: la **chapa acanalada** se convierte en sistema gráfico.
 
-- **Materiales como paleta**: carbón, marfil, arena, terracota y zinc (`src/styles/tokens.css`).
+- **Del día a la noche**: la página arranca con fondos crema (mañana), pasa a la luz cálida de la tarde,
+  atraviesa la franja de chapa (zinc con el paño amarillo y naranja de la entrada) y termina de noche, en azul,
+  con las guirnaldas del cerco encendiéndose. Las secciones de noche llevan `on-dark` y `data-tone="night"`
+  (la cabecera cambia de tono sola).
+- **Paleta tomada del lugar** (`src/styles/tokens.css`): crema, arena, amarillo y naranja de la chapa, verde del
+  parque, azul noche y luz cálida.
+- **Logo provisional** (`src/components/Logo.tsx`): círculo con "Las Chapas" al centro y "Suite de huéspedes"
+  debajo, dibujado a partir de la descripción del logo real. Cuando exista el archivo definitivo, se reemplaza
+  ahí (y en `public/favicon.svg` e `images/brand/og.html`).
+- **Guirnalda de luces** (`src/components/StringLights.tsx`): la firma gráfica del sitio.
 - **Tipografía**: EB Garamond (serif clásica, con itálicas reales) para títulos y Jost (sans geométrica) para
   texto y etiquetas en mayúsculas espaciadas. Autoalojadas, con alternativas de sistema.
 - **Fotos en color** con la saturación apenas suavizada. Con `MONOCHROME = true` en

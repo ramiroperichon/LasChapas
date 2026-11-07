@@ -48,7 +48,7 @@
   inset: 0;
   margin: 0;
   transform-origin: 50% 85%;
-  box-shadow: 0 2.5rem 4rem -2rem rgb(20 18 16 / 0.45);
+  box-shadow: 0 2.5rem 4rem -2rem rgb(18 19 29 / 0.45);
   transition:
     transform 1.15s var(--ease-out),
     opacity 0.9s var(--ease-out);
@@ -79,7 +79,7 @@
   right: 0;
   bottom: 0;
   padding: 2.5rem 1rem 0.9rem;
-  background: linear-gradient(0deg, rgb(20 18 16 / 0.65), rgb(20 18 16 / 0));
+  background: linear-gradient(0deg, rgb(18 19 29 / 0.65), rgb(18 19 29 / 0));
   color: var(--marfil);
 }
 
